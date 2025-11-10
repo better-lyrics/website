@@ -1,7 +1,11 @@
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Card } from "../ui/card";
+import { motion } from "motion/react";
+import { useState } from "react";
 
 export function TestimonialsSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const testimonials = [
     {
       avatar:
@@ -32,7 +36,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="w-full py-12 bg-gray-100 md:py-24 lg:py-32 dark:bg-gray-800"
+      className="w-full py-12 bg-gradient-to-b from-gray-200 to-white md:py-24 lg:py-32 dark:bg-gray-800"
     >
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -47,23 +51,94 @@ export function TestimonialsSection() {
           </div>
           <div className="grid max-w-5xl grid-cols-1 gap-6 pt-12 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="flex flex-col p-6 space-y-4 transition-colors bg-white border border-gray-200 rounded-lg shadow-sm hover:border-gray-300 dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700"
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+                className="relative group"
               >
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Avatar className="w-8 h-8">
-                      <img src={testimonial.avatar} alt="User Avatar" />
-                      <AvatarFallback>{testimonial.fallback}</AvatarFallback>
-                    </Avatar>
-                    <div className="font-medium">{testimonial.name}</div>
+                <Card className="relative flex flex-col h-full p-6 space-y-4 overflow-hidden transition-all duration-300 bg-gradient-to-b from-white to-gray-50 border-[0.5px] border-gray-300 rounded-3xl hover:border-gray-400 hover:scale-[1.02] hover:-translate-y-1 hover:border-red-300/75 embossed-object dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700">
+                  {/* Noise texture overlay */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15 mix-blend-multiply">
+                    <defs>
+                      <filter id={`noise-testimonial-${index}`}>
+                        <feTurbulence
+                          type="fractalNoise"
+                          baseFrequency="0.6"
+                          numOctaves="4"
+                          seed="15"
+                          stitchTiles="stitch"
+                        />
+                        <feColorMatrix type="saturate" values="0" />
+                        <feComponentTransfer>
+                          <feFuncR type="linear" slope="1.2" intercept="-0.1" />
+                          <feFuncG type="linear" slope="1.2" intercept="-0.1" />
+                          <feFuncB type="linear" slope="1.2" intercept="-0.1" />
+                        </feComponentTransfer>
+                      </filter>
+                      <linearGradient
+                        id={`noise-fade-testimonial-${index}`}
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stopColor="white" />
+                        <stop
+                          offset="70%"
+                          stopColor="rgba(255, 255, 255, 0.6)"
+                        />
+                        <stop offset="100%" stopColor="black" />
+                      </linearGradient>
+                      <mask id={`noise-mask-testimonial-${index}`}>
+                        <rect
+                          width="100%"
+                          height="100%"
+                          fill={`url(#noise-fade-testimonial-${index})`}
+                        />
+                      </mask>
+                    </defs>
+                    <rect
+                      width="100%"
+                      height="100%"
+                      filter={`url(#noise-testimonial-${index})`}
+                      mask={`url(#noise-mask-testimonial-${index})`}
+                    />
+                  </svg>
+
+                  {/* Gradient background on hover */}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      opacity: hoveredIndex === index ? 0.15 : 0,
+                      clipPath:
+                        hoveredIndex === index
+                          ? "circle(150% at 20% 20%)"
+                          : "circle(0% at 20% 20%)",
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 150,
+                      damping: 19,
+                      mass: 1.2,
+                    }}
+                    className="absolute inset-0 !mt-0 pointer-events-none rounded-3xl bg-gradient-to-br from-rose-300 to-red-300"
+                  />
+
+                  <div className="relative space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Avatar className="w-8 h-8">
+                        <img src={testimonial.avatar} alt="User Avatar" />
+                        <AvatarFallback>{testimonial.fallback}</AvatarFallback>
+                      </Avatar>
+                      <div className="font-medium">{testimonial.name}</div>
+                    </div>
+                    <p className="py-2 text-left text-gray-500 dark:text-gray-400">
+                      {testimonial.quote}
+                    </p>
                   </div>
-                  <p className="py-2 text-left text-gray-500 dark:text-gray-400">
-                    {testimonial.quote}
-                  </p>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>

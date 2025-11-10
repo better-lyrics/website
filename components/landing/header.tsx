@@ -10,9 +10,7 @@ export function Header({ status }: HeaderProps) {
     <header className="fixed z-50 flex items-center w-full px-4 border-b bg-white/75 backdrop-blur lg:px-6 h-14 border-black/5">
       <Link className="flex items-center justify-center" href="#">
         <img alt="Logo" className="mr-2 size-6" src="/icon-512.png" />
-        <span className="hidden text-xl font-bold sm:block">
-          Better Lyrics
-        </span>
+        <span className="hidden text-xl font-bold sm:block">Better Lyrics</span>
       </Link>
       <nav className="flex items-center gap-4 ml-auto sm:gap-6">
         <Link
@@ -20,12 +18,6 @@ export function Header({ status }: HeaderProps) {
           href="#features"
         >
           Features
-        </Link>
-        <Link
-          className="hidden text-sm font-medium hover:underline underline-offset-4 sm:block"
-          href="#demo"
-        >
-          Demo
         </Link>
         <Link
           className="hidden text-sm font-medium hover:underline underline-offset-4 sm:block"

@@ -29,7 +29,6 @@ export function Landing() {
         <TopBanner />
         <HeroSection />
         <FeaturesSection />
-        <DemoSection />
         <TestimonialsSection />
       </main>
 

@@ -122,3 +122,31 @@
     );
   z-index: -1;
 }
+
+.engraved {
+  @apply bg-gray-400/50 bg-clip-text text-transparent;
+  text-shadow: rgba(249, 250, 251, 0.4) 1.5px 2px 0.5px;
+}
+
+.embossed-object {
+  box-shadow: rgba(0, 0, 0, 0.025) 0px 2px 4px,
+    rgba(0, 0, 0, 0.05) 0px 7px 13px -4px,
+    rgba(0, 0, 0, 0.075) 0px -4px 0px inset;
+}
+
+.shadow-video {
+  box-shadow: rgb(0 0 0 / 50%) 0px 10px 36px 0px,
+    rgb(0 0 0 / 75%) 0px 0px 0px 2px;
+}
+
+.shadow-video:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  box-shadow: rgb(255 255 255 / 20%) 0px 0px 2px 2px inset;
+  border-radius: inherit;
+}

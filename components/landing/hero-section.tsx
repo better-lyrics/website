@@ -27,11 +27,11 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="w-full grid place-items-center hero-bg lg:min-h-[calc(100vh_-_6.5rem)] relative py-12 lg:py-0">
+    <section className="w-full grid place-items-center hero-bg min-h-[calc(100vh_-_6.5rem)] relative py-12 lg:py-0">
       <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:-mt-4 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+        <div className="grid gap-28 lg:-mt-4 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
           <div className="flex flex-col justify-center flex-shrink-0 space-y-4">
-            <div className="space-y-6 max-w-[600px]">
+            <div className="space-y-6 max-w-[600px] text-center sm:text-left">
               <AnimatedText
                 text="Elevate Your Lyrical Experience"
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
@@ -90,7 +90,7 @@ export function HeroSection() {
               </Link>
             </motion.div>
           </div>
-          <div className="overflow-hidden bg-black rounded-md shadow-2xl lg:border-4 lg:border-white/20 lg:rounded-2xl">
+          <div className="relative overflow-hidden bg-black rounded-xl shadow-video lg:rounded-2xl">
             <motion.video
               ref={videoRef}
               initial={{ opacity: 0, filter: "blur(8px)" }}
@@ -117,12 +117,10 @@ export function HeroSection() {
                 type="video/mp4"
                 media="(max-width: 768px)"
               />
-
               {/* Desktop - High-res WebM */}
               <source src="/hero-bg.webm" type="video/webm" />
               {/* Desktop - High-res MP4 fallback */}
               <source src="/hero-bg.mp4" type="video/mp4" />
-
               Your browser does not support the video tag.
             </motion.video>
           </div>
