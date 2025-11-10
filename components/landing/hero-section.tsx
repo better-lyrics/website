@@ -105,12 +105,24 @@ export function HeroSection() {
               preload="auto"
               className="object-cover w-full h-full"
             >
-              {/* WebM sources */}
-              <source src="/hero-bg-alt.webm" type="video/webm" />
+              {/* Mobile - Low-res WebM */}
+              <source
+                src="/hero-bg-alt.webm"
+                type="video/webm"
+                media="(max-width: 768px)"
+              />
+              {/* Mobile - Low-res MP4 fallback */}
+              <source
+                src="/hero-bg-alt.mp4"
+                type="video/mp4"
+                media="(max-width: 768px)"
+              />
+
+              {/* Desktop - High-res WebM */}
               <source src="/hero-bg.webm" type="video/webm" />
-              {/* MP4 fallback sources */}
-              <source src="/hero-bg-alt.mp4" type="video/mp4" />
+              {/* Desktop - High-res MP4 fallback */}
               <source src="/hero-bg.mp4" type="video/mp4" />
+
               Your browser does not support the video tag.
             </motion.video>
           </div>
