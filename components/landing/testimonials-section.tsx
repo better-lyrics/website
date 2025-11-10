@@ -64,7 +64,14 @@ export function TestimonialsSection() {
     >
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="space-y-2"
+          >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               What Our Users Say
             </h2>
@@ -72,7 +79,9 @@ export function TestimonialsSection() {
               Hear from our users about how Better Lyrics has transformed their
               Youtube Music experience.
             </p>
-          </div>
+          </motion.div>
+
+          {/* Testimonials Grid */}
           <div className="grid max-w-5xl grid-cols-1 gap-6 pt-12 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div

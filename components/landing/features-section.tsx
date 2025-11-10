@@ -88,7 +88,7 @@ export function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto mb-16 text-center"
+          className="max-w-3xl mx-auto mb-16 space-y-2 text-center"
         >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Powerful Features
