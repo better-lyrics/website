@@ -31,6 +31,30 @@ export function TestimonialsSection() {
       quote:
         "A much needed extension for YouTube Music. It just works!!! Highly recommended.",
     },
+    {
+      avatar:
+        "https://lh3.googleusercontent.com/a-/ALV-UjU8KdSsvcWrRkc76vHBLNQV7u-rfopdygy0yKmpCdAIefBmv90=s96-w96-h96",
+      name: "Just People",
+      fallback: "JP",
+      quote:
+        "i love this extension, i can singing japanese song without worry about kanji and hiragana, and synchronize lyrics make this better and also can translate lyrics, loveee ittt thanks dev, for making this extension",
+    },
+    {
+      avatar:
+        "https://lh3.googleusercontent.com/a-/ALV-UjVGaRVEG3vDgT6z0UE7jMigdZeEnPf18qLwJEEeywAGPtiIdjtFyA=s96-w96-h96",
+      name: "Param Bedi",
+      fallback: "PB",
+      quote:
+        "God, I was thinking of writing an extension because I am sick of youtube being a d**k and not writing a simple piece of code that makes lyrics appear the way spotify does. You Sir, just saved me a lots of trouble of figuring out how to do the same. 1 search and bang there was your extension. AND I LOVE IT!!!!",
+    },
+    {
+      avatar:
+        "https://lh3.googleusercontent.com/a-/ALV-UjUrNbAnetlMljWodq-Crcgxwax5Q_sxcYKpw-SiNV3bllyTqxEUCA=s96-w96-h96",
+      name: "Johnathon Deal",
+      fallback: "JD",
+      quote:
+        "I actually smiled and giggled, it was amazing having beautiful lyrics on the website. Thank you to all the devs, designers and whoever was involved in this project for making this.",
+    },
   ];
 
   return (
@@ -57,7 +81,7 @@ export function TestimonialsSection() {
                 onHoverEnd={() => setHoveredIndex(null)}
                 className="relative group"
               >
-                <Card className="relative flex flex-col h-full p-6 space-y-4 overflow-hidden transition-all duration-300 bg-gradient-to-b from-white to-gray-50 border-[0.5px] border-gray-300 rounded-3xl hover:border-gray-400 hover:scale-[1.02] hover:-translate-y-1 hover:border-red-300/75 embossed-object dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700">
+                <Card className="relative flex flex-col h-full py-8 px-6 space-y-4 overflow-hidden transition-all duration-300 bg-gradient-to-b from-white to-gray-50 border-[0.5px] border-gray-300 rounded-3xl hover:border-gray-400 hover:scale-[1.02] hover:-translate-y-1 hover:border-red-300/75 embossed-object dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700">
                   {/* Noise texture overlay */}
                   <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-15 mix-blend-multiply">
                     <defs>
@@ -125,7 +149,7 @@ export function TestimonialsSection() {
                     className="absolute inset-0 !mt-0 pointer-events-none rounded-3xl bg-gradient-to-br from-rose-300 to-red-300"
                   />
 
-                  <div className="relative space-y-2">
+                  <div className="relative space-y-2 !mt-0">
                     <div className="flex items-center gap-2">
                       <Avatar className="w-8 h-8">
                         <img src={testimonial.avatar} alt="User Avatar" />
@@ -133,7 +157,7 @@ export function TestimonialsSection() {
                       </Avatar>
                       <div className="font-medium">{testimonial.name}</div>
                     </div>
-                    <p className="py-2 text-left text-gray-500 dark:text-gray-400">
+                    <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
                       {testimonial.quote}
                     </p>
                   </div>

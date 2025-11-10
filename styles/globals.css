@@ -124,8 +124,8 @@
 }
 
 .engraved {
-  @apply bg-gray-400/50 bg-clip-text text-transparent;
-  text-shadow: rgba(249, 250, 251, 0.4) 1.5px 2px 0.5px;
+  @apply bg-gray-400/80 bg-clip-text text-transparent;
+  text-shadow: rgba(249, 250, 251, 0.4) 1.5px 2px 0.25px;
 }
 
 .embossed-object {
