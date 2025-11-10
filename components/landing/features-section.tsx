@@ -151,7 +151,7 @@ export function FeaturesSection() {
                         iconRefs.current[index] = el;
                       }}
                       size={40}
-                      className="text-gray-800"
+                      className="text-gray-700"
                     />
                   </div>
 
