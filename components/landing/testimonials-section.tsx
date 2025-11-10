@@ -77,6 +77,10 @@ export function TestimonialsSection() {
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 onHoverStart={() => setHoveredIndex(index)}
                 onHoverEnd={() => setHoveredIndex(null)}
                 className="relative group"
@@ -151,8 +155,12 @@ export function TestimonialsSection() {
 
                   <div className="relative space-y-2 !mt-0">
                     <div className="flex items-center gap-2">
-                      <Avatar className="w-8 h-8">
-                        <img src={testimonial.avatar} alt="User Avatar" />
+                      <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
+                        <img
+                          className="flex-shrink-0 object-contain w-8"
+                          src={testimonial.avatar}
+                          alt="User Avatar"
+                        />
                         <AvatarFallback>{testimonial.fallback}</AvatarFallback>
                       </Avatar>
                       <div className="font-medium">{testimonial.name}</div>
