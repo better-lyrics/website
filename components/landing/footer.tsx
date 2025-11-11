@@ -5,6 +5,7 @@ import TwitterIcon from "@/components/icons/twitter";
 import RedditIcon from "@/components/icons/reddit";
 import BetterLyricsLogo from "@/components/icons/better-lyrics";
 import { NoiseOverlay } from "@/components/shared/noise-overlay";
+import GithubIcon from "@/components/icons/github";
 
 export const Footer = memo(function Footer() {
   const links = [
@@ -22,14 +23,7 @@ export const Footer = memo(function Footer() {
       group: "social",
       icon: <DiscordIcon />,
     },
-    {
-      href: "https://twitter.com/boidushya",
-      label: "Twitter",
-      event: "twitter-link",
-      target: "_blank",
-      group: "social",
-      icon: <TwitterIcon />,
-    },
+
     {
       href: "https://www.reddit.com/r/betterlyrics/",
       label: "Reddit",
@@ -37,6 +31,22 @@ export const Footer = memo(function Footer() {
       target: "_blank",
       group: "social",
       icon: <RedditIcon />,
+    },
+    {
+      href: "https://www.github.com/better-lyrics",
+      label: "GitHub",
+      event: "github-link",
+      target: "_blank",
+      group: "social",
+      icon: <GithubIcon />,
+    },
+    {
+      href: "https://twitter.com/boidushya",
+      label: "Twitter",
+      event: "twitter-link",
+      target: "_blank",
+      group: "social",
+      icon: <TwitterIcon />,
     },
     {
       href: "https://github.com/boidushya/better-lyrics/blob/master/PRIVACY.md",
@@ -65,7 +75,7 @@ export const Footer = memo(function Footer() {
       <h4 className="z-10 text-4xl font-black !leading-snug tracking-tight whitespace-pre pl-14 md:pl-24 md:text-5xl engraved">
         Better Lyrics
       </h4>
-      <div className="flex flex-col items-center justify-between gap-2 mt-6 md:items-end md:mt-0">
+      <div className="flex flex-col items-center justify-between gap-2 mt-6 md:gap-4 md:items-end md:mt-0">
         <div className="flex flex-col items-center gap-2 md:items-end">
           <nav className="z-10 flex gap-4 md:ml-auto md:gap-6">
             {links
