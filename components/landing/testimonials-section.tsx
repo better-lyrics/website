@@ -77,7 +77,17 @@ const testimonials: Testimonial[] = [
     quote:
       "I've been using Youtube Music for so long but I've always felt that Google never put in real work into making this platform a great site/app with pure design and focus on User Experience. This changed with Better Lyrics. This was the Youtube music we wanted, It was what I wanted, I searched for months for a proper Word Synced lyrics alternative and there it was, and it was just far better than amazing! Absolute game changer for any YTM user",
   },
+  {
+    id: "andi",
+    avatar: "/a.png",
+    name: "Andi",
+    fallback: "A",
+    quote:
+      "I have been bribed to write this positive testimonial. This is the best extension money can buy and boy do i have money now thank you Better Lyrics, pleasure doing business.",
+  },
 ];
+
+const DISCLAIMER_IDS = ["andi"];
 
 export function TestimonialsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -106,38 +116,55 @@ export function TestimonialsSection() {
 
           {/* Testimonials Grid */}
           <div className="grid max-w-5xl grid-cols-1 gap-6 pt-12 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <AnimatedGridItem
-                key={testimonial.id}
-                index={index}
-                isHovered={hoveredIndex === index}
-                onHoverStart={() => handleHoverStart(index)}
-                onHoverEnd={handleHoverEnd}
-                gradient="from-rose-300 to-red-300"
-                clipPathOrigin="20% 20%"
-                renderGradientInside={true}
-                className="flex flex-col px-6 py-8 space-y-4"
-              >
-                <NoiseOverlay gradientDirection="vertical" />
+            {testimonials.map((testimonial, index) => {
+              const isDisclaimer = DISCLAIMER_IDS.includes(testimonial.id);
+              return (
+                <AnimatedGridItem
+                  key={testimonial.id}
+                  index={index}
+                  isHovered={hoveredIndex === index}
+                  onHoverStart={() => handleHoverStart(index)}
+                  onHoverEnd={handleHoverEnd}
+                  gradient="from-rose-300 to-red-300"
+                  clipPathOrigin="20% 20%"
+                  renderGradientInside={true}
+                  className="flex flex-col px-6 py-8 space-y-4"
+                >
+                  <NoiseOverlay gradientDirection="vertical" />
 
-                <div className="relative space-y-2 !mt-0 z-10">
-                  <div className="flex items-center gap-2">
-                    <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
-                      <img
-                        className="flex-shrink-0 object-contain w-8"
-                        src={testimonial.avatar}
-                        alt="User Avatar"
-                      />
-                      <AvatarFallback>{testimonial.fallback}</AvatarFallback>
-                    </Avatar>
-                    <div className="font-medium">{testimonial.name}</div>
+                  <div className="relative space-y-2 !mt-0 z-10">
+                    <div className="flex items-center gap-2">
+                      <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
+                        <img
+                          className="flex-shrink-0 object-contain w-8"
+                          src={testimonial.avatar}
+                          alt="User Avatar"
+                        />
+                        <AvatarFallback>{testimonial.fallback}</AvatarFallback>
+                      </Avatar>
+                      <div className="font-medium">
+                        {testimonial.name}
+                        {isDisclaimer && (
+                          <strong className="text-red-400"> *</strong>
+                        )}
+                      </div>
+                    </div>
+                    <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
+                      {testimonial.quote}
+                      {isDisclaimer && (
+                        <div className="mt-4 text-xs text-opacity-20">
+                          <strong className="mr-1 text-red-400 text-opacity-100">
+                            *
+                          </strong>
+                          This individual may or may not be a close personal
+                          friend of the developer.
+                        </div>
+                      )}
+                    </p>
                   </div>
-                  <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
-                    {testimonial.quote}
-                  </p>
-                </div>
-              </AnimatedGridItem>
-            ))}
+                </AnimatedGridItem>
+              );
+            })}
           </div>
         </div>
       </div>
