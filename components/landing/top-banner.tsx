@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function TopBanner() {
   return (
-    <div className="absolute z-10 flex items-center justify-between w-full h-12 gap-4 px-6 py-4 text-sm text-yellow-800 whitespace-pre bg-gradient-to-r from-yellow-200/75 via-yellow-200/75 to-yellow-200 top-14 border-y border-yellow-800/10">
+    <div className="absolute z-10 flex items-center justify-between w-full h-12 gap-4 px-4 py-4 text-sm text-yellow-800 whitespace-pre sm:px-6 bg-gradient-to-r from-yellow-200/75 via-yellow-200/75 to-yellow-200 top-14 border-y border-yellow-800/10">
       Better Lyrics is on Product Hunt! 🚀
       <Link
         href="https://www.producthunt.com/posts/better-lyrics?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-better&#0045;lyrics"
