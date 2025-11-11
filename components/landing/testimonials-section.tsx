@@ -152,13 +152,13 @@ export function TestimonialsSection() {
                     <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
                       {testimonial.quote}
                       {isDisclaimer && (
-                        <div className="mt-4 text-xs text-opacity-20">
+                        <span className="inline-block mt-4 text-xs text-opacity-20">
                           <strong className="mr-1 text-red-400 text-opacity-100">
                             *
                           </strong>
                           This individual may or may not be a close personal
                           friend of the developer.
-                        </div>
+                        </span>
                       )}
                     </p>
                   </div>
