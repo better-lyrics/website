@@ -66,7 +66,7 @@ export const AnimatedGridItem = memo(function AnimatedGridItem({
     >
       <div
         className={cn(
-          "relative h-full transition-[transform,border-color] duration-300 bg-gradient-to-b from-white to-gray-100 border-[0.5px] border-gray-300 hover:border-red-300/75 rounded-3xl overflow-hidden embossed-object",
+          "relative h-full transition-[transform,border-color,box-shadow] duration-300 bg-gradient-to-b from-white to-gray-100 border-[0.5px] border-gray-300 hover:border-red-300/75 rounded-3xl overflow-hidden embossed-object",
           isHovered && "scale-[1.02] -translate-y-1",
           className
         )}
