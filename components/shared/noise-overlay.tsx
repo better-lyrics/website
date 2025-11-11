@@ -1,3 +1,4 @@
+import { cn } from "@/utils/functions";
 import { memo } from "react";
 
 interface NoiseOverlayProps {
@@ -5,6 +6,7 @@ interface NoiseOverlayProps {
    * Gradient direction: "diagonal", "horizontal", or "vertical"
    */
   gradientDirection?: "diagonal" | "horizontal" | "vertical";
+  className?: string;
 }
 
 /**
@@ -13,6 +15,7 @@ interface NoiseOverlayProps {
  */
 export const NoiseOverlay = memo(function NoiseOverlay({
   gradientDirection = "diagonal",
+  className,
 }: NoiseOverlayProps) {
   const maskImage =
     gradientDirection === "horizontal"
@@ -23,7 +26,10 @@ export const NoiseOverlay = memo(function NoiseOverlay({
 
   return (
     <div
-      className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-[0.03]"
+      className={cn(
+        "absolute inset-0 pointer-events-none mix-blend-multiply opacity-[0.03]",
+        className
+      )}
       style={{
         backgroundImage: "url(/noise-texture.png)",
         backgroundSize: "512px 512px",
