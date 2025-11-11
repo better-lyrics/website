@@ -38,6 +38,7 @@ export function Header({ status }: HeaderProps) {
               "text-red-800 bg-red-50 border-red-600/40 hover:bg-red-100"
           )}
           href="https://better-lyrics-status.boidu.dev"
+          target="_blank"
         >
           <span className="relative flex w-2 h-2 mr-2">
             <span
@@ -63,6 +64,7 @@ export function Header({ status }: HeaderProps) {
         <Link
           className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors bg-gray-900 shadow rounded-xl h-9 text-gray-50 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 "
           href="https://github.com/boidushya/better-lyrics"
+          target="_blank"
         >
           <svg
             viewBox="0 0 256 250"
