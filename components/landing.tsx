@@ -1,5 +1,5 @@
 import React from "react";
-import { type TStatus } from "../utils/functions";
+import { type TStatus } from "@/utils/functions";
 import { Header } from "./landing/header";
 import { TopBanner } from "./landing/top-banner";
 import { HeroSection } from "./landing/hero-section";

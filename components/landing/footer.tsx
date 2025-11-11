@@ -52,7 +52,7 @@ export const Footer = memo(function Footer() {
 
   return (
     <footer className="relative flex flex-col md:flex-row items-center justify-between gap-2 py-8 pl-6 pr-6 md:pr-10 mx-4 md:mx-8 mb-4 md:mb-8 overflow-hidden border-[0.5px] rounded-3xl border-gray-300 embossed-object bg-gradient-to-b from-white to-gray-100 shrink-0">
-      <NoiseOverlay id="footer" gradientDirection="horizontal" />
+      <NoiseOverlay gradientDirection="horizontal" />
 
       <BetterLyricsLogo className="absolute inline-block h-10 -translate-x-32 -translate-y-1/2 md:h-16 text-gray-400/80 aspect-square top-14 md:top-1/2 left-1/2 md:translate-x-0 md:left-8" />
       <h4 className="z-10 text-4xl font-black !leading-snug tracking-tight whitespace-pre pl-14 md:pl-24 md:text-5xl engraved">
@@ -94,7 +94,7 @@ export const Footer = memo(function Footer() {
           </nav>
         </div>
         <p className="z-10 mt-6 text-xs text-gray-500 dark:text-gray-400 md:mt-0">
-          &copy; 2025 Better Lyrics. All rights reserved.
+          &copy; {new Date().getFullYear()} Better Lyrics. All rights reserved.
         </p>
       </div>
     </footer>

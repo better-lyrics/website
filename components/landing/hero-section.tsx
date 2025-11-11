@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from "react";
-import { AnimatedText } from "../animated-text";
+import { AnimatedText } from "@/components/animated-text";
 import { motion } from "motion/react";
 import { StoreButton } from "@/components/shared/store-button";
 import { FADE_IN_UP } from "@/constants/animations";

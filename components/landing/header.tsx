@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cn, type TStatus } from "../../utils/functions";
+import { cn, type TStatus } from "@/utils/functions";
 
 interface HeaderProps {
   status: TStatus;

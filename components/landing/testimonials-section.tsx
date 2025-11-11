@@ -1,5 +1,4 @@
-import { Avatar, AvatarFallback } from "../ui/avatar";
-import { Card } from "../ui/card";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useState, useCallback } from "react";
 import { SectionHeader } from "@/components/shared/section-header";
 import { AnimatedGridItem } from "@/components/shared/animated-grid-item";
@@ -43,15 +42,7 @@ const testimonials: Testimonial[] = [
     quote:
       "i love this extension, i can singing japanese song without worry about kanji and hiragana, and synchronize lyrics make this better and also can translate lyrics, loveee ittt thanks dev, for making this extension",
   },
-  {
-    id: "param-bedi",
-    avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjVGaRVEG3vDgT6z0UE7jMigdZeEnPf18qLwJEEeywAGPtiIdjtFyA=s96-w96-h96",
-    name: "Param Bedi",
-    fallback: "PB",
-    quote:
-      "God, I was thinking of writing an extension because I am sick of youtube being a d**k and not writing a simple piece of code that makes lyrics appear the way spotify does. You Sir, just saved me a lots of trouble of figuring out how to do the same. 1 search and bang there was your extension. AND I LOVE IT!!!!",
-  },
+
   {
     id: "johnathon-deal",
     avatar:
@@ -68,6 +59,15 @@ const testimonials: Testimonial[] = [
     fallback: "SF",
     quote:
       "One of the best add-ons there are. It ain't trying to be the next gen whatever it just makes the lyrics better. That's all it wants to do and it does it in ways I didn't even know I needed.",
+  },
+  {
+    id: "param-bedi",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVGaRVEG3vDgT6z0UE7jMigdZeEnPf18qLwJEEeywAGPtiIdjtFyA=s96-w96-h96",
+    name: "Param Bedi",
+    fallback: "PB",
+    quote:
+      "God, I was thinking of writing an extension because I am sick of youtube being a d**k and not writing a simple piece of code that makes lyrics appear the way spotify does. You Sir, just saved me a lots of trouble of figuring out how to do the same. 1 search and bang there was your extension. AND I LOVE IT!!!!",
   },
   {
     id: "wttexe",
@@ -116,27 +116,26 @@ export function TestimonialsSection() {
                 gradient="from-rose-300 to-red-300"
                 clipPathOrigin="20% 20%"
                 renderGradientInside={true}
+                className="flex flex-col px-6 py-8 space-y-4"
               >
-                <Card className="relative flex flex-col h-full py-8 px-6 space-y-4 overflow-hidden bg-gradient-to-b from-white to-gray-50 border-0 rounded-3xl dark:border-gray-800 dark:bg-gray-950">
-                  <NoiseOverlay id={`testimonial-${index}`} gradientDirection="diagonal" />
+                <NoiseOverlay gradientDirection="vertical" />
 
-                  <div className="relative space-y-2 !mt-0 z-10">
-                    <div className="flex items-center gap-2">
-                      <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
-                        <img
-                          className="flex-shrink-0 object-contain w-8"
-                          src={testimonial.avatar}
-                          alt="User Avatar"
-                        />
-                        <AvatarFallback>{testimonial.fallback}</AvatarFallback>
-                      </Avatar>
-                      <div className="font-medium">{testimonial.name}</div>
-                    </div>
-                    <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
-                      {testimonial.quote}
-                    </p>
+                <div className="relative space-y-2 !mt-0 z-10">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
+                      <img
+                        className="flex-shrink-0 object-contain w-8"
+                        src={testimonial.avatar}
+                        alt="User Avatar"
+                      />
+                      <AvatarFallback>{testimonial.fallback}</AvatarFallback>
+                    </Avatar>
+                    <div className="font-medium">{testimonial.name}</div>
                   </div>
-                </Card>
+                  <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
+                    {testimonial.quote}
+                  </p>
+                </div>
               </AnimatedGridItem>
             ))}
           </div>

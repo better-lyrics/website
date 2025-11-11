@@ -2,55 +2,39 @@ import { memo } from "react";
 
 interface NoiseOverlayProps {
   /**
-   * Gradient direction: "diagonal" or "horizontal"
+   * Gradient direction: "diagonal", "horizontal", or "vertical"
    */
-  gradientDirection?: "diagonal" | "horizontal";
-  /**
-   * Unique ID for local mask to avoid conflicts
-   */
-  id: string;
+  gradientDirection?: "diagonal" | "horizontal" | "vertical";
 }
 
 /**
- * Reusable noise texture overlay component
- * Uses global filter, defines local mask for gradient
+ * Reusable noise texture overlay component using static image
+ * Much more performant than SVG filters - uses cached image + CSS masks
  */
 export const NoiseOverlay = memo(function NoiseOverlay({
   gradientDirection = "diagonal",
-  id,
 }: NoiseOverlayProps) {
-  const gradientId = `noise-gradient-${id}`;
-  const maskId = `noise-mask-${id}`;
-
-  const isHorizontal = gradientDirection === "horizontal";
+  const maskImage =
+    gradientDirection === "horizontal"
+      ? "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0) 100%)"
+      : gradientDirection === "vertical"
+      ? "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)"
+      : "linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0) 100%)";
 
   return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none mix-blend-multiply opacity-15">
-      <defs>
-        <linearGradient
-          id={gradientId}
-          x1="0%"
-          y1="0%"
-          x2={isHorizontal ? "100%" : "100%"}
-          y2={isHorizontal ? "0%" : "100%"}
-        >
-          <stop offset="0%" stopColor="white" />
-          <stop
-            offset={isHorizontal ? "60%" : "70%"}
-            stopColor={isHorizontal ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0.6)"}
-          />
-          <stop offset="100%" stopColor="black" />
-        </linearGradient>
-        <mask id={maskId}>
-          <rect width="100%" height="100%" fill={`url(#${gradientId})`} />
-        </mask>
-      </defs>
-      <rect
-        width="100%"
-        height="100%"
-        filter="url(#noise-texture)"
-        mask={`url(#${maskId})`}
-      />
-    </svg>
+    <div
+      className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-[0.03]"
+      style={{
+        backgroundImage: "url(/noise-texture.png)",
+        backgroundSize: "512px 512px",
+        backgroundRepeat: "repeat",
+        WebkitMaskImage: maskImage,
+        maskImage: maskImage,
+        WebkitMaskSize: "100% 100%",
+        maskSize: "100% 100%",
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+      }}
+    />
   );
 });

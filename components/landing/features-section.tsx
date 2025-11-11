@@ -16,6 +16,7 @@ import {
 } from "@/components/icons/translation";
 import { SectionHeader } from "@/components/shared/section-header";
 import { AnimatedGridItem } from "@/components/shared/animated-grid-item";
+import { NoiseOverlay } from "@/components/shared/noise-overlay";
 import type { Feature } from "@/types/landing";
 
 type IconHandle =
@@ -129,8 +130,10 @@ export function FeaturesSection() {
                 clipPathOrigin="25% 25%"
                 className="p-8"
               >
+                <NoiseOverlay gradientDirection="vertical" />
+
                 {/* Icon */}
-                <div className="relative mb-6">
+                <div className="relative mb-6 z-10">
                   <IconComponent
                     ref={(el: IconHandle | null) => {
                       iconRefs.current[index] = el;
@@ -141,7 +144,7 @@ export function FeaturesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="relative">
+                <div className="relative z-10">
                   <h3 className="mb-3 text-xl font-bold text-gray-900">
                     {feature.title}
                   </h3>
