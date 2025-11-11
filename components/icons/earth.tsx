@@ -2,15 +2,16 @@
 
 import type { Transition, Variants } from "motion/react";
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { motion, useAnimation } from "motion/react";
+import { forwardRef, useImperativeHandle } from "react";
+import { motion } from "motion/react";
 
 import { cn } from "@/utils/functions";
+import {
+  useAnimatedIcon,
+  type AnimatedIconHandle,
+} from "@/hooks/useAnimatedIcon";
 
-export interface EarthIconHandle {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-}
+export type EarthIconHandle = AnimatedIconHandle;
 
 interface EarthIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
@@ -35,39 +36,10 @@ const circleVariants: Variants = {
 
 const EarthIcon = forwardRef<EarthIconHandle, EarthIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
+    const { controls, handleMouseEnter, handleMouseLeave, getImperativeHandle } =
+      useAnimatedIcon({ onMouseEnter, onMouseLeave });
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
-
-      return {
-        startAnimation: () => controls.start("animate"),
-        stopAnimation: () => controls.start("normal"),
-      };
-    });
-
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start("animate");
-        } else {
-          onMouseEnter?.(e);
-        }
-      },
-      [controls, onMouseEnter]
-    );
-
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start("normal");
-        } else {
-          onMouseLeave?.(e);
-        }
-      },
-      [controls, onMouseLeave]
-    );
+    useImperativeHandle(ref, getImperativeHandle, [getImperativeHandle]);
 
     return (
       <div

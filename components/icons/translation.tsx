@@ -6,11 +6,9 @@ import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import { motion, useAnimation } from "motion/react";
 
 import { cn } from "@/utils/functions";
+import type { AnimatedIconHandle } from "@/hooks/useAnimatedIcon";
 
-export interface TranslationIconHandle {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-}
+export type TranslationIconHandle = AnimatedIconHandle;
 
 interface TranslationIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;

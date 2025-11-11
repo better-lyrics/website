@@ -1,15 +1,16 @@
 "use client";
 
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import { motion, useAnimation } from "motion/react";
+import { forwardRef, useImperativeHandle } from "react";
+import { motion } from "motion/react";
 
 import { cn } from "@/utils/functions";
+import {
+  useAnimatedIcon,
+  type AnimatedIconHandle,
+} from "@/hooks/useAnimatedIcon";
 
-export interface SettingsIconHandle {
-  startAnimation: () => void;
-  stopAnimation: () => void;
-}
+export type SettingsIconHandle = AnimatedIconHandle;
 
 interface SettingsIconProps extends HTMLAttributes<HTMLDivElement> {
   size?: number;
@@ -17,39 +18,10 @@ interface SettingsIconProps extends HTMLAttributes<HTMLDivElement> {
 
 const SettingsIcon = forwardRef<SettingsIconHandle, SettingsIconProps>(
   ({ onMouseEnter, onMouseLeave, className, size = 28, ...props }, ref) => {
-    const controls = useAnimation();
-    const isControlledRef = useRef(false);
+    const { controls, handleMouseEnter, handleMouseLeave, getImperativeHandle } =
+      useAnimatedIcon({ onMouseEnter, onMouseLeave });
 
-    useImperativeHandle(ref, () => {
-      isControlledRef.current = true;
-
-      return {
-        startAnimation: () => controls.start("animate"),
-        stopAnimation: () => controls.start("normal"),
-      };
-    });
-
-    const handleMouseEnter = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start("animate");
-        } else {
-          onMouseEnter?.(e);
-        }
-      },
-      [controls, onMouseEnter]
-    );
-
-    const handleMouseLeave = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isControlledRef.current) {
-          controls.start("normal");
-        } else {
-          onMouseLeave?.(e);
-        }
-      },
-      [controls, onMouseLeave]
-    );
+    useImperativeHandle(ref, getImperativeHandle, [getImperativeHandle]);
     return (
       <div
         className={cn(className)}

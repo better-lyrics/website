@@ -1,19 +1,20 @@
-import Link from "next/link";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback, memo } from "react";
 import { AnimatedText } from "../animated-text";
 import { motion } from "motion/react";
+import { StoreButton } from "@/components/shared/store-button";
+import { FADE_IN_UP } from "@/constants/animations";
 
-export function HeroSection() {
+const HeroVideo = memo(function HeroVideo() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleCanPlay = useCallback(() => {
+    setVideoLoaded(true);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-
-    const handleCanPlay = () => {
-      setVideoLoaded(true);
-    };
 
     video.addEventListener("canplay", handleCanPlay);
 
@@ -24,7 +25,47 @@ export function HeroSection() {
     return () => {
       video.removeEventListener("canplay", handleCanPlay);
     };
-  }, []);
+  }, [handleCanPlay]);
+
+  return (
+    <div className="relative overflow-hidden bg-black rounded-xl shadow-video lg:rounded-2xl">
+      <motion.video
+        ref={videoRef}
+        initial={{ opacity: 0, filter: "blur(8px)" }}
+        animate={{
+          opacity: videoLoaded ? 1 : 0,
+          filter: videoLoaded ? "blur(0px)" : "blur(8px)",
+        }}
+        playsInline
+        autoPlay
+        muted
+        loop
+        preload="auto"
+        className="object-cover w-full h-full"
+      >
+        {/* Mobile - Low-res WebM */}
+        <source
+          src="/hero-bg-alt.webm"
+          type="video/webm"
+          media="(max-width: 768px)"
+        />
+        {/* Mobile - Low-res MP4 fallback */}
+        <source
+          src="/hero-bg-alt.mp4"
+          type="video/mp4"
+          media="(max-width: 768px)"
+        />
+        {/* Desktop - High-res WebM */}
+        <source src="/hero-bg.webm" type="video/webm" />
+        {/* Desktop - High-res MP4 fallback */}
+        <source src="/hero-bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </motion.video>
+    </div>
+  );
+});
+
+export function HeroSection() {
 
   return (
     <section className="w-full grid place-items-center hero-bg min-h-[calc(100vh_-_6.5rem)] relative py-12 lg:py-0">
@@ -49,81 +90,30 @@ export function HeroSection() {
               />
             </div>
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 8,
-                scale: 1.025,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-              transition={{
-                delay: 0.9,
-              }}
-              className="flex flex-col pt-4 gap-2 min-[400px]:flex-row"
+              initial="hidden"
+              animate="visible"
+              variants={FADE_IN_UP}
+              className="flex flex-col gap-2 pt-4 sm:flex-row"
             >
-              <Link
-                className="h-12 px-4 overflow-hidden transition-all bg-white border rounded-md shadow-md border-black/15 hover:border-black/20 hover:shadow-lg"
+              <StoreButton
                 href="https://chromewebstore.google.com/detail/better-lyrics/effdbpeggelllpfkjppbokhmmiinhlmg"
-                target="_blank"
-                data-umami-event="chrome-btn"
-              >
-                <img
-                  src="/cws.png"
-                  alt="Chrome Web Store"
-                  className="h-full mx-auto"
-                />
-              </Link>
-              <Link
-                className="h-12 overflow-hidden px-10 py-1 bg-[#0E9AD6] border border-black/5 rounded-md shadow-md hover:border-black/20 hover:shadow-lg transition-all"
+                imgSrc="/cws.png"
+                alt="Chrome Web Store"
+                eventName="chrome-btn"
+                delay={0.9}
+              />
+              <StoreButton
                 href="https://addons.mozilla.org/en-US/firefox/addon/better-lyrics/"
-                target="_blank"
-                data-umami-event="firefox-btn"
-              >
-                <img
-                  src="/ff.svg"
-                  alt="Firefox Add-On Store"
-                  className="h-full mx-auto"
-                />
-              </Link>
+                imgSrc="/ff.svg"
+                alt="Firefox Add-On Store"
+                bgColor="bg-[#0E9AD6]"
+                eventName="firefox-btn"
+                delay={1}
+                className="px-10 py-1"
+              />
             </motion.div>
           </div>
-          <div className="relative overflow-hidden bg-black rounded-xl shadow-video lg:rounded-2xl">
-            <motion.video
-              ref={videoRef}
-              initial={{ opacity: 0, filter: "blur(8px)" }}
-              animate={{
-                opacity: videoLoaded ? 1 : 0,
-                filter: videoLoaded ? "blur(0px)" : "blur(8px)",
-              }}
-              playsInline
-              autoPlay
-              muted
-              loop
-              preload="auto"
-              className="object-cover w-full h-full"
-            >
-              {/* Mobile - Low-res WebM */}
-              <source
-                src="/hero-bg-alt.webm"
-                type="video/webm"
-                media="(max-width: 768px)"
-              />
-              {/* Mobile - Low-res MP4 fallback */}
-              <source
-                src="/hero-bg-alt.mp4"
-                type="video/mp4"
-                media="(max-width: 768px)"
-              />
-              {/* Desktop - High-res WebM */}
-              <source src="/hero-bg.webm" type="video/webm" />
-              {/* Desktop - High-res MP4 fallback */}
-              <source src="/hero-bg.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </motion.video>
-          </div>
+          <HeroVideo />
         </div>
       </div>
     </section>
