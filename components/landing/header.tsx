@@ -14,7 +14,9 @@ export function Header({ status }: HeaderProps) {
       </Link>
       <nav className="flex items-center gap-4 ml-auto sm:gap-6">
         <Link
-          className="hidden text-sm font-medium hover:underline underline-offset-4 sm:block"
+          className={
+            "hidden text-sm font-medium hover:underline underline-offset-4 sm:block"
+          }
           href="#features"
         >
           Features
