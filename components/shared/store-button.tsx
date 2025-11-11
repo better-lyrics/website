@@ -12,7 +12,10 @@ interface StoreButtonProps {
   delay?: number;
   eventName: string;
   className?: string;
+  imgClassName?: string;
 }
+
+const MotionLink = motion.create(Link);
 
 /**
  * Reusable store button component for Chrome/Firefox download links
@@ -25,26 +28,32 @@ export const StoreButton = memo(function StoreButton({
   delay = 0,
   eventName,
   className,
+  imgClassName,
 }: StoreButtonProps) {
   return (
-    <motion.div
+    <MotionLink
+      data-state="neutral"
+      className={cn(
+        "flex w-full sm:w-auto items-center h-12 sm:active:h-[46px] px-4 justify-center overflow-hidden pb-1 group transition-[border-color,box-shadow,height] border rounded-xl embossed-object shadow-md border-black/15 hover:border-black/20 hover:shadow-lg",
+        bgColor,
+        className
+      )}
+      href={href}
+      target="_blank"
+      data-umami-event={eventName}
       initial="hidden"
       animate="visible"
       variants={FADE_IN_UP}
       transition={{ delay }}
     >
-      <Link
+      <img
+        src={imgSrc}
+        alt={alt}
         className={cn(
-          "flex items-center h-12 px-4 overflow-hidden transition-[border-color,box-shadow] border rounded-md shadow-md border-black/15 hover:border-black/20 hover:shadow-lg",
-          bgColor,
-          className
+          "h-8 mx-auto -translate-y-0.5 group-active:translate-y-0 transition-transform",
+          imgClassName
         )}
-        href={href}
-        target="_blank"
-        data-umami-event={eventName}
-      >
-        <img src={imgSrc} alt={alt} className="h-full mx-auto" />
-      </Link>
-    </motion.div>
+      />
+    </MotionLink>
   );
 });

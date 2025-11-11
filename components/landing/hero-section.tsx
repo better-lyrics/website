@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, memo } from "react";
-import { AnimatedText } from "@/components/animated-text";
+import { AnimatedText } from "../animated-text";
 import { motion } from "motion/react";
 import { StoreButton } from "@/components/shared/store-button";
 import { FADE_IN_UP } from "@/constants/animations";
@@ -66,7 +66,6 @@ const HeroVideo = memo(function HeroVideo() {
 });
 
 export function HeroSection() {
-
   return (
     <section className="w-full grid place-items-center hero-bg min-h-[calc(100vh_-_6.5rem)] relative py-12 lg:py-0">
       <div className="container px-4 md:px-6">
@@ -93,7 +92,7 @@ export function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={FADE_IN_UP}
-              className="flex flex-col gap-2 pt-4 sm:flex-row"
+              className="flex flex-col items-end gap-2 pt-4 sm:flex-row"
             >
               <StoreButton
                 href="https://chromewebstore.google.com/detail/better-lyrics/effdbpeggelllpfkjppbokhmmiinhlmg"
@@ -101,6 +100,7 @@ export function HeroSection() {
                 alt="Chrome Web Store"
                 eventName="chrome-btn"
                 delay={0.9}
+                imgClassName="mt-1 h-10"
               />
               <StoreButton
                 href="https://addons.mozilla.org/en-US/firefox/addon/better-lyrics/"
@@ -109,7 +109,8 @@ export function HeroSection() {
                 bgColor="bg-[#0E9AD6]"
                 eventName="firefox-btn"
                 delay={1}
-                className="px-10 py-1"
+                className="px-10"
+                imgClassName="mt-1"
               />
             </motion.div>
           </div>

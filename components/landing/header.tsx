@@ -7,9 +7,9 @@ interface HeaderProps {
 
 export function Header({ status }: HeaderProps) {
   return (
-    <header className="fixed z-50 flex items-center w-full px-4 border-b bg-white/75 backdrop-blur lg:px-6 h-14 border-black/5">
+    <header className="fixed z-50 flex items-center w-full px-4 border-b-[0.75px] sm:border-b-[0.5px] border-gray-300 bg-gray-50/90 backdrop-blur-md lg:px-6 h-14">
       <Link className="flex items-center justify-center" href="#">
-        <img alt="Logo" className="mr-2 size-6" src="/icon-512.png" />
+        <img alt="Logo" className="mr-2 size-6" src="/logo.svg" />
         <span className="hidden text-xl font-bold sm:block">Better Lyrics</span>
       </Link>
       <nav className="flex items-center gap-4 ml-auto sm:gap-6">
@@ -27,7 +27,7 @@ export function Header({ status }: HeaderProps) {
         </Link>
         <Link
           className={cn(
-            "inline-flex items-center justify-center px-3 py-2 text-sm font-medium transition-colors border rounded-md shadow h-9 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50",
+            "inline-flex items-center justify-center px-3 py-2 text-sm font-medium transition-colors border rounded-xl shadow h-9 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50",
             status === "operational" &&
               "text-green-800 bg-green-50 border-green-600/40 hover:bg-green-100",
             status === "degraded" &&
@@ -59,7 +59,7 @@ export function Header({ status }: HeaderProps) {
         </Link>
 
         <Link
-          className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors bg-gray-900 rounded-md shadow h-9 text-gray-50 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+          className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors bg-gray-900 shadow rounded-xl h-9 text-gray-50 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 "
           href="https://github.com/boidushya/better-lyrics"
         >
           <svg
@@ -75,7 +75,7 @@ export function Header({ status }: HeaderProps) {
         </Link>
 
         <Link
-          className="inline-flex items-center justify-center p-2 text-sm font-medium transition-colors bg-[#5865F2] rounded-md shadow h-9 text-gray-50 hover:bg-[#4053D6] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+          className="inline-flex items-center justify-center p-2 text-sm font-medium transition-colors bg-[#5865F2] rounded-xl shadow h-9 text-gray-50 hover:bg-[#4053D6] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
           href="https://discord.gg/UsHE3d5fWF"
           target="_blank"
         >
