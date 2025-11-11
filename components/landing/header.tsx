@@ -7,10 +7,12 @@ interface HeaderProps {
 
 export function Header({ status }: HeaderProps) {
   return (
-    <header className="fixed z-50 flex items-center w-full px-4 border-b-[0.75px] sm:border-b-[0.5px] border-gray-300 bg-gray-50/90 backdrop-blur-md lg:px-6 h-14">
+    <header className="fixed z-50 text-gray-800 flex items-center w-full px-4 border-b-[0.75px] sm:border-b-[0.5px] border-gray-300 bg-gray-50/90 backdrop-blur-md lg:px-6 h-14">
       <Link className="flex items-center justify-center" href="#">
         <img alt="Logo" className="mr-2 size-6" src="/logo.svg" />
-        <span className="hidden text-xl font-bold sm:block">Better Lyrics</span>
+        <span className="hidden text-xl font-bold text-black sm:block">
+          Better Lyrics
+        </span>
       </Link>
       <nav className="flex items-center gap-4 ml-auto sm:gap-6">
         <Link
