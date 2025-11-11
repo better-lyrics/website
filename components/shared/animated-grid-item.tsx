@@ -12,7 +12,6 @@ interface AnimatedGridItemProps {
   isHovered: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;
-  onTap?: () => void;
   gradient?: string;
   clipPathOrigin?: string;
   className?: string;
@@ -29,27 +28,18 @@ export const AnimatedGridItem = memo(function AnimatedGridItem({
   isHovered,
   onHoverStart,
   onHoverEnd,
-  onTap,
   gradient = "from-rose-300 to-red-300",
   clipPathOrigin = "25% 25%",
   className,
   children,
   renderGradientInside = false,
 }: AnimatedGridItemProps) {
-  const [isTapped, setIsTapped] = useState(false);
-  const isActive = isHovered || isTapped;
-
-  const handleTap = () => {
-    setIsTapped(!isTapped);
-    onTap?.();
-  };
-
   const gradientElement = (
     <motion.div
       initial={false}
       animate={{
-        opacity: isActive ? 0.15 : 0,
-        clipPath: isActive
+        opacity: isHovered ? 0.15 : 0,
+        clipPath: isHovered
           ? `circle(150% at ${clipPathOrigin})`
           : `circle(0% at ${clipPathOrigin})`,
       }}
@@ -72,15 +62,17 @@ export const AnimatedGridItem = memo(function AnimatedGridItem({
       }}
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
-      onTap={handleTap}
+      onTouchStart={onHoverStart}
+      onTouchEnd={onHoverEnd}
       className="relative group"
     >
       <div
         className={cn(
           "relative h-full transition-[transform,border-color,box-shadow] duration-300 bg-gradient-to-b from-white to-gray-100 border-[0.5px] border-gray-300 hover:border-red-300/75 rounded-3xl overflow-hidden embossed-object",
-          isActive && "scale-[1.02] -translate-y-1 border-red-300/75",
+          isHovered && "scale-[1.02] -translate-y-1 border-red-300/75",
           className
         )}
+        data-disable-hover={isHovered ? undefined : true}
       >
         {/* Gradient background on hover */}
         {!renderGradientInside && gradientElement}
