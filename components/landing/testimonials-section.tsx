@@ -132,7 +132,7 @@ export function TestimonialsSection() {
                 >
                   <NoiseOverlay gradientDirection="vertical" />
 
-                  <div className="relative space-y-2 !mt-0 z-10">
+                  <div className="h-full relative space-y-2 !mt-0 z-10 flex flex-col">
                     <div className="flex items-center gap-2">
                       <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
                         <img
@@ -149,17 +149,19 @@ export function TestimonialsSection() {
                         )}
                       </div>
                     </div>
-                    <p className="py-2 text-left text-gray-500 dark:text-gray-400 text-pretty">
+                    <p className="relative flex flex-col justify-between h-full py-2 text-left text-gray-500 text-pretty">
                       {testimonial.quote}
-                      {isDisclaimer && (
-                        <span className="inline-block mt-4 text-xs text-opacity-20">
-                          <strong className="mr-1 text-red-400 text-opacity-100">
-                            *
-                          </strong>
-                          This individual may or may not be a close personal
-                          friend of the developer.
-                        </span>
-                      )}
+                      <span
+                        className={`relative inline-block mt-6 pl-2 text-balance text-xs text-gray-500/50  ${
+                          isDisclaimer ? "inline-block" : "hidden"
+                        }`}
+                      >
+                        <strong className="absolute mr-1 -translate-x-2 text-red-400/50">
+                          *
+                        </strong>
+                        This individual may or may not be a close personal
+                        friend of the developer.
+                      </span>
                     </p>
                   </div>
                 </AnimatedGridItem>
