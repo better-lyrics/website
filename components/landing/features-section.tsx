@@ -98,6 +98,14 @@ export function FeaturesSection() {
     []
   );
 
+  const handleTap = useCallback((index: number) => {
+    iconRefs.current[index]?.startAnimation();
+    // Stop animation after a delay on tap
+    setTimeout(() => {
+      iconRefs.current[index]?.stopAnimation();
+    }, 1000);
+  }, []);
+
   return (
     <section
       className="relative w-full py-20 overflow-hidden bg-gradient-to-b from-white to-gray-200 md:py-32"
@@ -126,6 +134,7 @@ export function FeaturesSection() {
                 isHovered={hoveredIndex === index}
                 onHoverStart={() => handleHoverStart(index)}
                 onHoverEnd={() => handleHoverEnd(index)}
+                onTap={() => handleTap(index)}
                 gradient={feature.gradient}
                 clipPathOrigin="25% 25%"
                 className="p-8"
