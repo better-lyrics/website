@@ -152,11 +152,11 @@ export function TestimonialsSection() {
                     <p className="relative flex flex-col justify-between h-full py-2 text-left text-gray-500 text-pretty">
                       {testimonial.quote}
                       <span
-                        className={`relative inline-block mt-6 pl-2 text-xs text-gray-500/50  ${
+                        className={`relative inline-block mt-6 pl-2 text-xs text-gray-500/50 group-hover:text-red-900/50 transition-colors duration-800 ${
                           isDisclaimer ? "inline-block" : "hidden"
                         }`}
                       >
-                        <strong className="absolute mr-1 -translate-x-2 text-red-400/50">
+                        <strong className="absolute mr-1 transition-colors -translate-x-2 duration-800 text-red-400/50 group-hover:text-red-400">
                           *
                         </strong>
                         This individual may or may not be a close personal
