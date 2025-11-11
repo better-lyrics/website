@@ -152,7 +152,7 @@ export function TestimonialsSection() {
                     <p className="relative flex flex-col justify-between h-full py-2 text-left text-gray-500 text-pretty">
                       {testimonial.quote}
                       <span
-                        className={`relative inline-block mt-6 pl-2 text-balance text-xs text-gray-500/50  ${
+                        className={`relative inline-block mt-6 pl-2 text-xs text-gray-500/50  ${
                           isDisclaimer ? "inline-block" : "hidden"
                         }`}
                       >
