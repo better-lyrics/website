@@ -13,10 +13,11 @@ export function Landing() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/api/status");
-      const { status: apiStatus } = await response.json();
+      const statusResponse = await fetch("/api/status");
 
-      setStatus(apiStatus);
+      const { status } = await statusResponse.json();
+
+      setStatus(status);
     };
     fetchData();
   }, []);

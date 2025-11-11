@@ -1,10 +1,15 @@
+import { cn } from "@/utils/functions";
 import React from "react";
 
-export default function DiscordIcon() {
+interface DiscordIconProps {
+  className?: string;
+}
+
+export default function DiscordIcon({ className }: DiscordIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="size-4"
+      className={cn("size-4", className)}
       viewBox="0 0 24 24"
     >
       <g fill="none" fillRule="evenodd">
