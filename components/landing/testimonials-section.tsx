@@ -134,7 +134,7 @@ export function TestimonialsSection() {
 
                   <div className="h-full relative space-y-2 !mt-0 z-10 flex flex-col">
                     <div className="flex items-center gap-2">
-                      <Avatar className="w-8 h-8 rounded-md border-[0.5px] border-gray-300 shadow-md bg-gray-50">
+                      <Avatar className="w-8 h-8 rounded-md border-[0.75px] md:[0.5px] border-gray-300 shadow-md bg-gray-50">
                         <img
                           className="flex-shrink-0 object-contain w-8"
                           src={testimonial.avatar}
