@@ -75,7 +75,7 @@ export const Footer = memo(function Footer() {
       <h4 className="z-10 text-4xl font-black !leading-snug tracking-tight whitespace-pre pl-14 md:pl-24 md:text-5xl engraved">
         Better Lyrics
       </h4>
-      <div className="flex flex-col items-center justify-between gap-2 mt-6 md:gap-4 md:items-end md:mt-0">
+      <div className="flex flex-col items-center justify-between gap-2 mt-6 md:items-end md:mt-0">
         <div className="flex flex-col items-center gap-2 md:items-end">
           <nav className="z-10 flex gap-4 md:ml-auto md:gap-6">
             {links
@@ -84,7 +84,7 @@ export const Footer = memo(function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs hover:underline underline-offset-4"
+                  className="text-xs text-gray-500 transition-colors hover:text-gray-600 hover:underline underline-offset-4"
                   prefetch={false}
                   target={link.target}
                   data-umami-event={link.event}
@@ -100,7 +100,7 @@ export const Footer = memo(function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs text-gray-500 transition-colors hover:underline underline-offset-4 hover:text-gray-600"
+                  className="text-xs text-gray-400 transition-colors hover:underline underline-offset-4 hover:text-gray-500"
                   prefetch={false}
                   target={link.target}
                   data-umami-event={link.event}
@@ -110,8 +110,12 @@ export const Footer = memo(function Footer() {
               ))}
           </nav>
         </div>
-        <p className="z-10 mt-6 text-xs text-gray-500 dark:text-gray-400 md:mt-0">
-          &copy; {new Date().getFullYear()} Better Lyrics. All rights reserved.
+        <p className="z-10 mt-6 text-xs text-gray-500 md:mt-0">
+          &copy; {new Date().getFullYear()}{" "}
+          <Link href="/" className="hover:underline underline-offset-4">
+            Better Lyrics
+          </Link>
+          . All rights reserved.
         </p>
       </div>
     </footer>
