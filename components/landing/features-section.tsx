@@ -3,7 +3,10 @@
 import { useRef, useState, useCallback } from "react";
 
 import { EarthIcon, type EarthIconHandle } from "@/components/icons/earth";
-import { MusicIcon, type MusicIconHandle } from "@/components/icons/music";
+import {
+  FeatherIcon,
+  type FeatherIconHandle,
+} from "@/components/icons/feather";
 import { SeekIcon, type SeekIconHandle } from "@/components/icons/seek";
 import {
   SettingsIcon,
@@ -24,14 +27,14 @@ type IconHandle =
   | TimeIconHandle
   | SeekIconHandle
   | EarthIconHandle
-  | MusicIconHandle
+  | FeatherIconHandle
   | TranslationIconHandle;
 
 const features: Feature[] = [
   {
     id: "zero-config",
     icon: SettingsIcon,
-    title: "Zero Config",
+    title: "Zero Setup Required",
     description:
       "No configuration required. Just install the extension and enjoy the benefits.",
     gradient: "from-rose-300 to-red-300",
@@ -62,7 +65,7 @@ const features: Feature[] = [
   },
   {
     id: "lightweight",
-    icon: MusicIcon,
+    icon: FeatherIcon,
     title: "Lightweight",
     description:
       "Better Lyrics is lightweight and won't slow down your browser.",
@@ -82,21 +85,15 @@ export function FeaturesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const iconRefs = useRef<(IconHandle | null)[]>([]);
 
-  const handleHoverStart = useCallback(
-    (index: number) => {
-      setHoveredIndex(index);
-      iconRefs.current[index]?.startAnimation();
-    },
-    []
-  );
+  const handleHoverStart = useCallback((index: number) => {
+    setHoveredIndex(index);
+    iconRefs.current[index]?.startAnimation();
+  }, []);
 
-  const handleHoverEnd = useCallback(
-    (index: number) => {
-      setHoveredIndex(null);
-      iconRefs.current[index]?.stopAnimation();
-    },
-    []
-  );
+  const handleHoverEnd = useCallback((index: number) => {
+    setHoveredIndex(null);
+    iconRefs.current[index]?.stopAnimation();
+  }, []);
 
   const handleTap = useCallback((index: number) => {
     iconRefs.current[index]?.startAnimation();
@@ -142,7 +139,7 @@ export function FeaturesSection() {
                 <NoiseOverlay gradientDirection="vertical" />
 
                 {/* Icon */}
-                <div className="relative mb-6 z-10">
+                <div className="relative z-10 mb-6">
                   <IconComponent
                     ref={(el: IconHandle | null) => {
                       iconRefs.current[index] = el;
