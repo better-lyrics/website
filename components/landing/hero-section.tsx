@@ -38,18 +38,19 @@ const HeroVideo = memo(function HeroVideo() {
       whileHover="hover"
     >
       <motion.p
-        className="z-10 absolute px-3 pl-2 py-1.5 pb-2 text-xs text-gray-600 bg-gradient-to-b from-white to-gray-200 rounded-lg pointer-events-none select-none top-4 left-4 embossed-object-small"
+        className="z-10 absolute px-3 pl-2 py-1.5 pb-1 text-xs text-gray-600 bg-gradient-to-b from-white to-gray-200 rounded-lg pointer-events-none select-none top-4 left-4 embossed-object-small origin-left"
         variants={HOVER_FADE_IN}
         transition={{ ...SPRING_CONFIG.bouncy, delay: 0.2 }}
       >
-        <span className="flex items-center gap-1 font-medium text-gray-900">
+        <span className="inline-flex items-center justify-center gap-0.5 font-semibold text-gray-900">
           <img
             src="/logo.svg"
             alt="Better Lyrics Logo"
             className="mr-0.5 size-4"
-          />
+          />{" "}
           EvenBetterLyrics+
-          <span className="text-gray-500/75 text-[0.5rem]">✦</span> ⛶ Fullscreen
+          <span className="font-normal"> theme in </span> Fullscreen
+          <span className="font-normal"> mode</span>
         </span>
       </motion.p>
       <motion.video
