@@ -19,14 +19,14 @@ interface FeatherIconProps extends HTMLAttributes<HTMLDivElement> {
 
 const featherVariants: Variants = {
   normal: {
-    rotate: 0,
+    rotate: 45,
     y: 0,
-    x: 0,
+    x: 4,
   },
   animate: {
-    rotate: [0, -8, 5, -3, 0],
+    rotate: [45, 45 - 8, 45 + 5, 45 - 3, 45],
     y: [0, -6, -3, -1, 0],
-    x: [0, 2, -2, 1, 0],
+    x: [4, 4 + 2, 4 - 2, 4 + 1, 4],
     transition: {
       duration: 1.6,
       ease: "easeInOut",
