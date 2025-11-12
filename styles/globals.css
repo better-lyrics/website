@@ -146,8 +146,8 @@
 }
 
 .embossed-object[data-state="neutral"]:active {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 36px,
-    rgba(0, 0, 0, 0.075) 0px 10px 15px -5px,
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px,
+    rgba(0, 0, 0, 0.075) 0px 7px 13px -5px,
     rgba(0, 0, 0, 0.1) 0px -2px 0px inset;
 }
 
