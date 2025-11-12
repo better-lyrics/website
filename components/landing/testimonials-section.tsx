@@ -149,7 +149,7 @@ export function TestimonialsSection() {
                         )}
                       </div>
                     </div>
-                    <p className="relative flex flex-col justify-between h-full py-2 text-left text-gray-500 text-pretty">
+                    <p className="relative flex flex-col justify-between h-full py-2 text-left text-gray-500 transition-colors group-hover:text-gray-600 text-pretty duration-800">
                       {testimonial.quote}
                       <span
                         className={`relative inline-block mt-6 pl-2 text-xs text-gray-500/50 group-hover:text-red-900/50 transition-colors duration-800 ${
