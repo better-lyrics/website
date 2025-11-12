@@ -16,7 +16,6 @@ export interface Feature {
   icon: ComponentType<IconProps & { ref?: any }>;
   title: string;
   description: string;
-  gradient: string;
 }
 
 /**

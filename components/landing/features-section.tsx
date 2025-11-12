@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback } from "react";
 
-import { EarthIcon, type EarthIconHandle } from "@/components/icons/earth";
+import { ThemeIcon, type ThemeIconHandle } from "@/components/icons/theme";
 import {
   FeatherIcon,
   type FeatherIconHandle,
@@ -26,9 +26,9 @@ type IconHandle =
   | SettingsIconHandle
   | TimeIconHandle
   | SeekIconHandle
-  | EarthIconHandle
   | FeatherIconHandle
-  | TranslationIconHandle;
+  | TranslationIconHandle
+  | ThemeIconHandle;
 
 const features: Feature[] = [
   {
@@ -36,48 +36,42 @@ const features: Feature[] = [
     icon: SettingsIcon,
     title: "Zero Setup Required",
     description:
-      "No configuration required. Just install the extension and enjoy the benefits.",
-    gradient: "from-rose-300 to-red-300",
+      "Better Lyrics works out of the box. Smart defaults, fully customizable.",
   },
   {
     id: "time-synced",
     icon: TimeIcon,
     title: "Time-synced Lyrics",
     description:
-      "Get beautiful time-synced lyrics that follow along perfectly with your favorite songs.",
-    gradient: "from-rose-300 to-red-300",
+      "Beautiful synced lyrics that follow along perfectly with your favorite songs.",
   },
   {
     id: "seek",
     icon: SeekIcon,
     title: "Seek",
     description:
-      "Seamlessly seek through sections of the song by clicking on the lines of the lyrics.",
-    gradient: "from-rose-300 to-red-300",
-  },
-  {
-    id: "multiple-languages",
-    icon: EarthIcon,
-    title: "Multiple Languages",
-    description:
-      "Get gorgeous lyrics irrespective of the language of the song.",
-    gradient: "from-rose-300 to-red-300",
+      "Jump to any section by clicking lyrics. Navigate songs seamlessly.",
   },
   {
     id: "lightweight",
     icon: FeatherIcon,
     title: "Lightweight",
     description:
-      "Better Lyrics is lightweight and won't slow down your browser.",
-    gradient: "from-rose-300 to-red-300",
+      "Lightweight and fast. Better Lyrics runs smoothly without impacting performance.",
   },
   {
     id: "translations",
     icon: TranslationIcon,
-    title: "Translations",
+    title: "Languages & Translations",
     description:
-      "Get real-time translations for lyrics in languages you don't understand.",
-    gradient: "from-rose-300 to-red-300",
+      "Gorgeous lyrics in any language. Translations & transliterations as needed.",
+  },
+  {
+    id: "theme",
+    icon: ThemeIcon,
+    title: "Themes",
+    description:
+      "Make YouTube Music yours. Choose from built-in themes or customize everything.",
   },
 ];
 
@@ -123,7 +117,6 @@ export function FeaturesSection() {
                 isHovered={hoveredIndex === index}
                 onHoverStart={() => handleHoverStart(index)}
                 onHoverEnd={() => handleHoverEnd(index)}
-                gradient={feature.gradient}
                 clipPathOrigin="25% 25%"
                 className="p-8"
               >
