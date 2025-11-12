@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@next/font": "14.2.3",
@@ -20,6 +21,7 @@
     "clsx": "^2.1.1",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.3",
+    "motion": "^12.23.24",
     "next": "14.2.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
