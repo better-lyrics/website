@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef, useCallback, memo } from "react";
 import { AnimatedText } from "../animated-text";
 import { motion } from "motion/react";
 import { StoreButton } from "@/components/shared/store-button";
-import { FADE_IN_UP } from "@/constants/animations";
+import {
+  FADE_IN_UP,
+  HOVER_FADE_IN,
+  SPRING_CONFIG,
+} from "@/constants/animations";
 
 const HeroVideo = memo(function HeroVideo() {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -28,8 +32,16 @@ const HeroVideo = memo(function HeroVideo() {
   }, [handleCanPlay]);
 
   return (
-    <div className="relative overflow-hidden bg-black group rounded-xl shadow-video lg:rounded-2xl">
-      <p className="absolute px-3 pl-2 py-1.5 pb-2 text-xs text-gray-600 transition-transform -translate-y-16 bg-gradient-to-b from-white to-gray-200 rounded-lg pointer-events-none select-none top-4 left-4 group-hover:translate-y-0 embossed-object-small ease-out duration-200 delay-200">
+    <motion.div
+      className="relative overflow-hidden bg-black rounded-xl shadow-video lg:rounded-2xl"
+      initial="idle"
+      whileHover="hover"
+    >
+      <motion.p
+        className="z-10 absolute px-3 pl-2 py-1.5 pb-2 text-xs text-gray-600 bg-gradient-to-b from-white to-gray-200 rounded-lg pointer-events-none select-none top-4 left-4 embossed-object-small"
+        variants={HOVER_FADE_IN}
+        transition={{ ...SPRING_CONFIG.bouncy, delay: 0.2 }}
+      >
         <span className="flex items-center gap-1 font-medium text-gray-900">
           <img
             src="/logo.svg"
@@ -39,7 +51,7 @@ const HeroVideo = memo(function HeroVideo() {
           EvenBetterLyrics+
           <span className="text-gray-500/75 text-[0.5rem]">✦</span> ⛶ Fullscreen
         </span>
-      </p>
+      </motion.p>
       <motion.video
         ref={videoRef}
         initial={{ opacity: 0, filter: "blur(8px)" }}
@@ -72,7 +84,7 @@ const HeroVideo = memo(function HeroVideo() {
         <source src="/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </motion.video>
-    </div>
+    </motion.div>
   );
 });
 

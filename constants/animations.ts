@@ -35,6 +35,12 @@ export const SPRING_CONFIG = {
     damping: 20,
     mass: 0.4,
   },
+  bouncy: {
+    type: "spring",
+    stiffness: 800,
+    damping: 38,
+    mass: 1.25,
+  },
 } as const;
 
 /**
@@ -50,6 +56,11 @@ export const FADE_IN_UP_LIGHT = {
   visible: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -4, transition: { duration: 0.15 } },
 } as const;
+
+export const HOVER_FADE_IN = {
+  idle: { y: -64, opacity: 0 },
+  hover: { y: 0, opacity: 1 },
+};
 
 export const FADE_IN = {
   hidden: { opacity: 0 },
