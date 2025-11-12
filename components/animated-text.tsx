@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { ElementType } from "react";
 
 interface AnimatedTextProps {
   text: string;
@@ -8,6 +9,7 @@ interface AnimatedTextProps {
   hiddenX?: number;
   hiddenY?: number;
   hiddenBlur?: string;
+  as?: ElementType;
 }
 
 export function AnimatedText({
@@ -18,11 +20,13 @@ export function AnimatedText({
   hiddenX = -8,
   hiddenY = 0,
   hiddenBlur = "blur(2px)",
+  as: Component = "div",
 }: AnimatedTextProps) {
   const words = text.split(" ");
+  const MotionComponent = motion.create(Component);
 
   return (
-    <motion.div
+    <MotionComponent
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -64,6 +68,6 @@ export function AnimatedText({
           {wordIndex !== words.length - 1 && " "}
         </span>
       ))}
-    </motion.div>
+    </MotionComponent>
   );
 }

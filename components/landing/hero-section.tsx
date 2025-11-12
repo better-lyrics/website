@@ -97,12 +97,14 @@ export function HeroSection() {
           <div className="flex flex-col justify-center flex-shrink-0 space-y-4">
             <div className="space-y-6 max-w-[600px] text-center sm:text-left">
               <AnimatedText
+                as="h1"
                 text="Elevate Your Lyrical Experience"
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 hiddenX={-8}
                 hiddenBlur="blur(2px)"
               />
               <AnimatedText
+                as="p"
                 text="Better Lyrics is the ultimate extension to step up your Youtube Music experience. Get beautiful time-synced lyrics, real-time translations, and more."
                 className="text-gray-500 md:text-xl dark:text-gray-400"
                 delayChildren={0.45}

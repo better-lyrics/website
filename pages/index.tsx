@@ -2,9 +2,9 @@ import Head from "next/head";
 import { Landing } from "@/components/landing";
 
 export default function Home() {
-  const title = "Better Lyrics";
+  const title = "Better Lyrics for Youtube Music";
   const description =
-    "Better Lyrics upgrades your YouTube Music experience by providing beautiful time-synced lyrics for your favorite songs.";
+    "Better Lyrics extension upgrades your YouTube Music experience by providing beautiful time-synced lyrics for your favorite songs.";
   const ogImage = "https://better-lyrics.boidu.dev/images/og.png";
 
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
-          content="better lyrics, youtube music, lyrics extension, synced lyrics, youtube music lyrics, music extension, chrome extension, firefox addon, better lyrics extension"
+          content="better lyrics, youtube music, lyrics extension, synced lyrics, youtube music lyrics, music extension ,youtube music extension, chrome extension, firefox addon, better lyrics extension"
         />
         <meta name="author" content="Better Lyrics" />
         <meta
