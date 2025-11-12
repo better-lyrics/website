@@ -44,7 +44,7 @@ const HeroVideo = memo(function HeroVideo() {
       >
         <span className="inline-flex items-center justify-center gap-0.5 font-semibold text-gray-900">
           <img
-            src="/logo.svg"
+            src="/icons/logo.svg"
             alt="Better Lyrics Logo"
             className="mr-0.5 size-4"
           />{" "}
@@ -69,20 +69,20 @@ const HeroVideo = memo(function HeroVideo() {
       >
         {/* Mobile - Low-res WebM */}
         <source
-          src="/hero-bg-alt.webm"
+          src="/videos/hero-bg-alt.webm"
           type="video/webm"
           media="(max-width: 768px)"
         />
         {/* Mobile - Low-res MP4 fallback */}
         <source
-          src="/hero-bg-alt.mp4"
+          src="/videos/hero-bg-alt.mp4"
           type="video/mp4"
           media="(max-width: 768px)"
         />
         {/* Desktop - High-res WebM */}
-        <source src="/hero-bg.webm" type="video/webm" />
+        <source src="/videos/hero-bg.webm" type="video/webm" />
         {/* Desktop - High-res MP4 fallback */}
-        <source src="/hero-bg.mp4" type="video/mp4" />
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </motion.video>
     </motion.div>
@@ -120,7 +120,7 @@ export function HeroSection() {
             >
               <StoreButton
                 href="https://chromewebstore.google.com/detail/better-lyrics/effdbpeggelllpfkjppbokhmmiinhlmg"
-                imgSrc="/cws.png"
+                imgSrc="/stores/cws.png"
                 alt="Chrome Web Store"
                 eventName="chrome-btn"
                 delay={0.9}
@@ -128,7 +128,7 @@ export function HeroSection() {
               />
               <StoreButton
                 href="https://addons.mozilla.org/en-US/firefox/addon/better-lyrics/"
-                imgSrc="/ff.svg"
+                imgSrc="/stores/ff.svg"
                 alt="Firefox Add-On Store"
                 bgColor="bg-[#0E9AD6]"
                 eventName="firefox-btn"

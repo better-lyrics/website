@@ -54,7 +54,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: "sortingfarmer",
-    avatar: "/sf.png",
+    avatar: "/images/sf.png",
     name: "SortingFarmer",
     fallback: "SF",
     quote:
@@ -71,7 +71,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: "wttexe",
-    avatar: "/w.jpeg",
+    avatar: "/images/w.jpeg",
     name: "WTTexe",
     fallback: "W",
     quote:
@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
   },
   {
     id: "andi",
-    avatar: "/a.png",
+    avatar: "/images/a.png",
     name: "Andi",
     fallback: "A",
     quote:

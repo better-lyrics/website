@@ -31,7 +31,7 @@ export const NoiseOverlay = memo(function NoiseOverlay({
         className
       )}
       style={{
-        backgroundImage: "url(/noise-texture.png)",
+        backgroundImage: "url(/textures/noise-texture.png)",
         backgroundSize: "512px 512px",
         backgroundRepeat: "repeat",
         WebkitMaskImage: maskImage,

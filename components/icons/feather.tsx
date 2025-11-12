@@ -64,6 +64,7 @@ const FeatherIcon = forwardRef<FeatherIconHandle, FeatherIconProps>(
           strokeLinejoin="round"
           variants={featherVariants}
           animate={controls}
+          initial="normal"
         >
           <path
             fill="none"

@@ -45,7 +45,7 @@ export const AnimatedGridItem = memo(function AnimatedGridItem({
       }}
       transition={SPRING_CONFIG.default}
       className={cn(
-        "absolute inset-0 rounded-3xl bg-gradient-to-br pointer-events-none !mt-0 z-0",
+        "absolute inset-0 rounded-3xl squircle bg-gradient-to-br pointer-events-none !mt-0 z-0",
         gradient
       )}
     />
@@ -68,7 +68,7 @@ export const AnimatedGridItem = memo(function AnimatedGridItem({
     >
       <div
         className={cn(
-          "relative h-full origin-bottom transition-[transform,border-color,box-shadow] duration-300 bg-gradient-to-b from-white to-gray-100 border-[0.75px] md:[0.5px] border-gray-300 rounded-3xl overflow-hidden embossed-object",
+          "relative h-full origin-bottom transition-[transform,border-color,box-shadow] duration-300 bg-gradient-to-b from-white to-gray-100 border-[0.75px] md:[0.5px] border-gray-300 rounded-3xl squircle overflow-hidden embossed-object",
           isHovered && "-translate-y-1 scale-[1.02] border-red-300/75",
           className
         )}

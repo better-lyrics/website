@@ -12,8 +12,8 @@ export function Header({ status }: HeaderProps) {
   return (
     <header className="fixed z-50 text-gray-800 flex items-center w-full px-4 border-b-[0.75px] sm:border-b-[0.5px] border-gray-300 bg-gray-50/90 backdrop-blur-md lg:px-6 h-14">
       <Link className="flex items-center justify-center" href="#">
-        <LogoContextMenu svgPath="/logo.svg">
-          <img alt="Logo" className="mr-2 size-6" src="/logo.svg" />
+        <LogoContextMenu svgPath="/icons/logo.svg">
+          <img alt="Logo" className="mr-2 size-6" src="/icons/logo.svg" />
         </LogoContextMenu>
         <span className="hidden text-xl font-bold text-black sm:block">
           Better Lyrics

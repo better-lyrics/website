@@ -63,7 +63,7 @@ export const Footer = memo(function Footer() {
   return (
     <footer
       data-disable-hover
-      className="relative flex flex-col md:flex-row items-center justify-between gap-2 py-8 pl-6 pr-6 md:pr-10 mx-2 md:mx-6 mb-2 md:mb-6 overflow-hidden border-[0.75px] md:[0.5px] rounded-xl sm:rounded-3xl border-gray-300 embossed-object bg-gradient-to-b from-white to-gray-100 shrink-0"
+      className="relative flex flex-col md:flex-row items-center justify-between gap-2 py-8 pl-6 pr-6 md:pr-10 mx-2 md:mx-6 mb-2 md:mb-6 overflow-hidden border-[0.75px] md:[0.5px] rounded-xl sm:rounded-3xl squircle border-gray-300 embossed-object bg-gradient-to-b from-white to-gray-100 shrink-0"
     >
       <NoiseOverlay gradientDirection="vertical" className="md:hidden" />
       <NoiseOverlay

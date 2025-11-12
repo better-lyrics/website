@@ -12,7 +12,7 @@ export default function Home() {
           name="google-site-verification"
           content="hsxkLtNCoahD0HV2cRmDi9op-0LMgf7wPrcehV7vEyU"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
         <script
           defer
           src="https://cloud.umami.is/script.js"
