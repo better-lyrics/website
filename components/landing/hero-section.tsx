@@ -28,7 +28,18 @@ const HeroVideo = memo(function HeroVideo() {
   }, [handleCanPlay]);
 
   return (
-    <div className="relative overflow-hidden bg-black rounded-xl shadow-video lg:rounded-2xl">
+    <div className="relative overflow-hidden bg-black group rounded-xl shadow-video lg:rounded-2xl">
+      <p className="absolute px-3 pl-2 py-1.5 pb-2 text-xs text-gray-600 transition-transform -translate-y-16 bg-gradient-to-b from-white to-gray-200 rounded-lg pointer-events-none select-none top-4 left-4 group-hover:translate-y-0 embossed-object-small ease-out duration-200 delay-200">
+        <span className="flex items-center gap-1 font-medium text-gray-900">
+          <img
+            src="/logo.svg"
+            alt="Better Lyrics Logo"
+            className="mr-0.5 size-4"
+          />
+          EvenBetterLyrics+
+          <span className="text-gray-500/75 text-[0.5rem]">✦</span> ⛶ Fullscreen
+        </span>
+      </p>
       <motion.video
         ref={videoRef}
         initial={{ opacity: 0, filter: "blur(8px)" }}
