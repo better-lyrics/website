@@ -33,12 +33,12 @@ const HeroVideo = memo(function HeroVideo() {
 
   return (
     <motion.div
-      className="relative overflow-hidden bg-black rounded-xl shadow-video lg:rounded-2xl"
+      className="relative overflow-hidden bg-black rounded-xl squircle shadow-video lg:rounded-3xl"
       initial="idle"
       whileHover="hover"
     >
       <motion.p
-        className="z-10 absolute px-3 pl-2 py-1.5 pb-1 text-xs text-gray-600 bg-gradient-to-b from-white to-gray-200 rounded-lg pointer-events-none select-none top-4 left-4 embossed-object-small origin-left"
+        className="z-10 absolute px-3 pl-2 py-1.5 pb-1 text-xs text-gray-600 bg-gradient-to-b from-white to-gray-200 rounded-lg squircle pointer-events-none select-none top-4 left-4 embossed-object-small origin-left"
         variants={HOVER_FADE_IN}
         transition={{ ...SPRING_CONFIG.bouncy, delay: 0.2 }}
       >

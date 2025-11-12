@@ -36,7 +36,7 @@ export function Header({ status }: HeaderProps) {
         </Link>
         <Link
           className={cn(
-            "inline-flex items-center justify-center px-3 py-2 text-sm font-medium transition-colors border rounded-xl h-9 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50",
+            "inline-flex items-center justify-center px-3 py-2 text-sm font-medium transition-colors border rounded-xl squircle h-9 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50",
             status === "operational" &&
               "text-green-800 bg-green-100/60 border-green-600/50 hover:bg-green-100",
             status === "degraded" &&
@@ -69,7 +69,7 @@ export function Header({ status }: HeaderProps) {
         </Link>
 
         <Link
-          className="relative inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-colors bg-gray-900 shadow group rounded-xl h-9 text-gray-50 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 "
+          className="relative inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-colors bg-gray-900 shadow group rounded-xl squircle h-9 text-gray-50 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 "
           href="https://github.com/boidushya/better-lyrics"
           target="_blank"
         >
@@ -78,7 +78,7 @@ export function Header({ status }: HeaderProps) {
         </Link>
 
         <Link
-          className="inline-flex items-center justify-center p-2 aspect-square text-sm font-medium transition-colors bg-[#5865F2] rounded-xl shadow h-9 text-gray-50 hover:bg-[#4053D6] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+          className="inline-flex items-center justify-center p-2 aspect-square text-sm font-medium transition-colors bg-[#5865F2] rounded-xl squircle shadow h-9 text-gray-50 hover:bg-[#4053D6] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
           href="https://discord.gg/UsHE3d5fWF"
           target="_blank"
         >

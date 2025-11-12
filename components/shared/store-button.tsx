@@ -34,7 +34,7 @@ export const StoreButton = memo(function StoreButton({
     <MotionLink
       data-state="neutral"
       className={cn(
-        "flex w-full sm:w-auto items-center h-12 sm:active:h-[46px] px-4 justify-center overflow-hidden pb-1 group transition-[border-color,box-shadow,height] border rounded-xl embossed-object shadow-md border-black/15 hover:border-black/20 hover:shadow-lg",
+        "flex w-full sm:w-auto items-center h-12 sm:active:h-[46px] px-4 justify-center overflow-hidden pb-1 group transition-[border-color,box-shadow,height] border rounded-xl squircle embossed-object shadow-md border-black/15 hover:border-black/20 hover:shadow-lg",
         bgColor,
         className
       )}
