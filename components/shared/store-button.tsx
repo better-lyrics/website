@@ -48,7 +48,7 @@ export const StoreButton = memo(function StoreButton({
         src={imgSrc}
         alt={alt}
         className={cn(
-          "h-8 mx-auto -translate-y-0.5 group-active:translate-y-0 pointer-events-none select-none transition-transform min-w-fit",
+          "h-8 mx-auto -translate-y-0.5 group-active:translate-y-0 pointer-events-none select-none transition-transform",
           imgClassName
         )}
       />
