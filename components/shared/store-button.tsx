@@ -24,7 +24,6 @@ export const StoreButton = memo(function StoreButton({
   href,
   imgSrc,
   alt,
-  bgColor = "bg-white",
   delay = 0,
   eventName,
   className,
@@ -34,8 +33,7 @@ export const StoreButton = memo(function StoreButton({
     <MotionLink
       data-state="neutral"
       className={cn(
-        "flex w-full sm:w-auto items-center h-12 sm:active:h-[46px] px-4 justify-center overflow-hidden pb-1 group transition-[border-color,box-shadow,height] border rounded-xl squircle embossed-object shadow-md border-black/15 hover:border-black/20 hover:shadow-lg",
-        bgColor,
+        "bg-white flex w-full sm:w-auto items-center h-12 sm:active:h-[46px] px-4 justify-center overflow-hidden pb-1 group transition-[border-color,box-shadow,height] border rounded-xl squircle embossed-object shadow-md border-black/15 hover:border-black/20 hover:shadow-lg",
         className
       )}
       href={href}
@@ -50,7 +48,7 @@ export const StoreButton = memo(function StoreButton({
         src={imgSrc}
         alt={alt}
         className={cn(
-          "h-8 mx-auto -translate-y-0.5 group-active:translate-y-0 pointer-events-none select-none transition-transform",
+          "h-8 mx-auto -translate-y-0.5 group-active:translate-y-0 pointer-events-none select-none transition-transform min-w-fit",
           imgClassName
         )}
       />

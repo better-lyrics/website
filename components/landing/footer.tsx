@@ -84,7 +84,7 @@ export const Footer = memo(function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs text-gray-500 transition-colors hover:text-gray-600 hover:underline underline-offset-4"
+                  className="text-xs text-gray-500 transition-colors sm:-ml-2 first:ml-0 first: hover:text-gray-600 hover:underline underline-offset-4"
                   prefetch={false}
                   target={link.target}
                   data-umami-event={link.event}

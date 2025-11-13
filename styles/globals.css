@@ -157,6 +157,24 @@
     rgba(255, 0, 0, 0.1) 0px -6px 0px inset;
 }
 
+.embossed-object-dark {
+  box-shadow: rgba(0, 0, 0, 0.025) 0px 2px 4px,
+    rgba(0, 0, 0, 0.05) 0px 7px 13px -4px,
+    rgba(255, 255, 255, 0.15) 0px -4px 0px inset !important;
+}
+
+.embossed-object-dark:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 36px,
+    rgba(0, 0, 0, 0.075) 0px 10px 15px -5px,
+    rgba(255, 255, 255, 0.15) 0px -4px 0px inset !important;
+}
+
+.embossed-object-dark:active {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px,
+    rgba(0, 0, 0, 0.075) 0px 7px 13px -5px,
+    rgba(255, 255, 255, 0.15) 0px -2px 0px inset !important;
+}
+
 .shadow-video {
   box-shadow: rgb(0 0 0 / 50%) 0px 10px 36px 0px,
     rgb(0 0 0 / 75%) 0px 0px 0px 2px;

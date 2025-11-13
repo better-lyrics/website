@@ -132,10 +132,18 @@ export function HeroSection() {
                 href="https://addons.mozilla.org/en-US/firefox/addon/better-lyrics/"
                 imgSrc="/stores/ff.svg"
                 alt="Firefox Add-On Store"
-                bgColor="bg-[#0E9AD6]"
                 eventName="firefox-btn"
+                delay={0.95}
+                className="px-10 bg-[#0E9AD6]"
+                imgClassName="mt-1"
+              />
+              <StoreButton
+                href="https://microsoftedge.microsoft.com/addons/detail/better-lyrics-lyrics-for/mjfeaklppoegooljmjicjdbiccgjdlhd"
+                imgSrc="/stores/me.png"
+                alt="Microsoft Edge Add-Ons"
+                eventName="edge-btn"
                 delay={1}
-                className="px-10"
+                className="px-10 bg-[#021928] embossed-object-dark border-white/10 hover:border-white/15"
                 imgClassName="mt-1"
               />
             </motion.div>
