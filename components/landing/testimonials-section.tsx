@@ -7,13 +7,17 @@ import type { Testimonial } from "@/types/landing";
 
 const testimonials: Testimonial[] = [
   {
-    id: "mistermew151",
+    id: "mike",
     avatar:
-      "https://styles.redditmedia.com/t5_4245r2/styles/profileIcon_thorr38dpvj91.jpg?width=256&height=256&frame=1&auto=webp&crop=256:256,smart&s=47712e9bb5030c41b249691a1194b0d84ee1898e",
-    name: "MisterMew151",
-    fallback: "JD",
-    quote:
-      "Love this! 10/10 works even better than I expected. I've wanted this for ages!",
+      "https://lh3.googleusercontent.com/a-/ALV-UjVLsqGJxXxKrCVE1PbuoHnTKxSBQeNCHBOAtx11bmjhYN63yEum=s256-w256-h256",
+    name: "Mike",
+    fallback: "M",
+    quote: (
+      <span>
+        This is a <span className="font-semibold">must have</span> if you listen
+        to YouTube Music a lot, trust me.
+      </span>
+    ),
   },
   {
     id: "nethercookiez",
@@ -21,44 +25,75 @@ const testimonials: Testimonial[] = [
       "https://i.redd.it/snoovatar/avatars/a71b88a3-9086-40a9-b926-8e16bac43bd5.png",
     name: "NetherCookiez",
     fallback: "NC",
-    quote:
-      "This is really great! Love the little animation where the lyrics get bigger. Already works as well (or even better) than YTM's lyrics.",
+    quote: (
+      <span>
+        This is really great! Love the little animation where the lyrics get
+        bigger. Already works as well (or{" "}
+        <span className="font-semibold">even better</span>) than YTM&apos;s
+        lyrics.
+      </span>
+    ),
   },
   {
     id: "kevin-patel",
     avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjVrYLipC28NxGa2S190dbX1DvUEnJbt7TUT64u4VFx9pYqG5ovj4A=s96-w96-h96",
+      "https://lh3.googleusercontent.com/a-/ALV-UjVrYLipC28NxGa2S190dbX1DvUEnJbt7TUT64u4VFx9pYqG5ovj4A=s256-w256-h256",
     name: "Kevin Patel",
     fallback: "KP",
-    quote:
-      "A much needed extension for YouTube Music. It just works!!! Highly recommended.",
+    quote: (
+      <span>
+        A much needed extension for YouTube Music.{" "}
+        <span className="font-semibold">It just works!!!</span> Highly
+        recommended.
+      </span>
+    ),
   },
   {
     id: "just-people",
     avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjU8KdSsvcWrRkc76vHBLNQV7u-rfopdygy0yKmpCdAIefBmv90=s96-w96-h96",
+      "https://lh3.googleusercontent.com/a-/ALV-UjU8KdSsvcWrRkc76vHBLNQV7u-rfopdygy0yKmpCdAIefBmv90=s256-w256-h256",
     name: "Just People",
     fallback: "JP",
-    quote:
-      "i love this extension, i can singing japanese song without worry about kanji and hiragana, and synchronize lyrics make this better and also can translate lyrics, loveee ittt thanks dev, for making this extension",
+    quote: (
+      <span>
+        I love this extension, I can sing Japanese songs without worrying about{" "}
+        <span className="font-semibold">kanji and hiragana</span>, and{" "}
+        <span className="font-semibold">synchronized lyrics</span> make this
+        even better and also can{" "}
+        <span className="font-semibold">translate lyrics</span>, loveee ittt
+        thanks dev, for making this extension.
+      </span>
+    ),
   },
-
   {
     id: "johnathon-deal",
     avatar:
       "https://lh3.googleusercontent.com/a-/ALV-UjUrNbAnetlMljWodq-Crcgxwax5Q_sxcYKpw-SiNV3bllyTqxEUCA=s96-w96-h96",
     name: "Johnathon Deal",
     fallback: "JD",
-    quote:
-      "I actually smiled and giggled, it was amazing having beautiful lyrics on the website. Thank you to all the devs, designers and whoever was involved in this project for making this.",
+    quote: (
+      <span>
+        I actually smiled and giggled, it was amazing having{" "}
+        <span className="font-semibold">beautiful lyrics</span> on the website.
+        Thank you to all the devs, designers and whoever was involved in this
+        project for making this.
+      </span>
+    ),
   },
   {
     id: "sortingfarmer",
     avatar: "/images/sf.png",
     name: "SortingFarmer",
     fallback: "SF",
-    quote:
-      "One of the best add-ons there are. It ain't trying to be the next gen whatever it just makes the lyrics better. That's all it wants to do and it does it in ways I didn't even know I needed.",
+    quote: (
+      <span>
+        One of the <span className="font-semibold">best add-ons</span> there
+        are. It ain&apos;t trying to be the next gen whatever, it{" "}
+        <span className="font-semibold">just makes the lyrics better</span>.
+        That&apos;s all it wants to do and it does it in ways I didn&apos;t even
+        know I needed.
+      </span>
+    ),
   },
   {
     id: "param-bedi",
@@ -66,24 +101,47 @@ const testimonials: Testimonial[] = [
       "https://lh3.googleusercontent.com/a-/ALV-UjVGaRVEG3vDgT6z0UE7jMigdZeEnPf18qLwJEEeywAGPtiIdjtFyA=s96-w96-h96",
     name: "Param Bedi",
     fallback: "PB",
-    quote:
-      "God, I was thinking of writing an extension because I am sick of youtube being a d**k and not writing a simple piece of code that makes lyrics appear the way spotify does. You Sir, just saved me a lots of trouble of figuring out how to do the same. 1 search and bang there was your extension. AND I LOVE IT!!!!",
+    quote: (
+      <span>
+        God, I was thinking of writing an extension because I am sick of YouTube
+        being a d**k and not writing a simple piece of code that makes lyrics
+        appear the way Spotify does. You Sir, just saved me a lot of trouble
+        figuring out how to do the same. 1 search and <em>bang</em> there was
+        your extension. AND <span className="font-semibold">I LOVE IT!!!!</span>
+      </span>
+    ),
   },
   {
     id: "wttexe",
     avatar: "/images/w.jpeg",
     name: "WTTexe",
     fallback: "W",
-    quote:
-      "I've been using Youtube Music for so long but I've always felt that Google never put in real work into making this platform a great site/app with pure design and focus on User Experience. This changed with Better Lyrics. This was the Youtube music we wanted, It was what I wanted, I searched for months for a proper Word Synced lyrics alternative and there it was, and it was just far better than amazing! Absolute game changer for any YTM user",
+    quote: (
+      <span>
+        I&apos;ve been using YouTube Music for so long but I&apos;ve always felt
+        that Google never put in real work into making this platform a great
+        site/app with pure design and focus on User Experience. This changed
+        with Better Lyrics. This was the YouTube Music we wanted, it was what I
+        wanted, I searched for months for a proper word-synced lyrics
+        alternative and there it was, and it was just{" "}
+        <span className="font-semibold">far better than amazing!</span> Absolute
+        game changer for any YTM user.
+      </span>
+    ),
   },
   {
     id: "andi",
     avatar: "/images/a.png",
     name: "Andi",
     fallback: "A",
-    quote:
-      "I have been bribed to write this positive testimonial. This is the best extension money can buy and boy do i have money now thank you Better Lyrics, pleasure doing business.",
+    quote: (
+      <span>
+        I have been bribed to write this positive testimonial.{" "}
+        <span className="font-semibold">This is the best extension</span> money
+        can buy and boy do I have money now thank you Better Lyrics, pleasure
+        doing business.
+      </span>
+    ),
   },
 ];
 

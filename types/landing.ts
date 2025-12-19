@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 
 /**
  * Props for animated icon components
@@ -26,7 +26,7 @@ export interface Testimonial {
   avatar: string;
   name: string;
   fallback: string;
-  quote: string;
+  quote: ReactNode;
 }
 
 /**
