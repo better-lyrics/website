@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { type TStatus } from "@/utils/functions";
 import { Header } from "@/components/landing/header";
 import Kawarp from "@kawarp/react";
+import { Footer } from "@/components/landing/footer";
 
 function AnimatedWord({
   word,
@@ -58,7 +59,7 @@ export default function NotFound() {
       </Head>
       <div className="relative z-10 flex flex-col min-h-screen overflow-y-hidden">
         <Header status={status} />
-        <main className="flex flex-col items-center justify-center flex-1 gap-8 px-6 md:px-14 pt-14">
+        <main className="z-10 flex flex-col items-center justify-center flex-1 gap-8 px-6 md:px-14 pt-14">
           <p
             className="text-5xl font-bold tracking-tight text-center cursor-default md:text-7xl"
             style={{
@@ -99,21 +100,21 @@ export default function NotFound() {
             </Link>
           </div>
         </main>
-      </div>
-      <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/10 font-black select-none pointer-events-none text-center cursor-default text-[50vw] leading-none tracking-tighter z-[1] mix-blend-overlay">
-        404
-      </p>
-      <div className="fixed inset-0">
-        <Kawarp
-          src="/textures/art.jpg"
-          blurPasses={8}
-          animationSpeed={4}
-          saturation={2}
-          warpIntensity={1}
-          dithering={0.1}
-          transitionDuration={0}
-          className="w-full h-full"
-        />
+        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/10 font-black select-none pointer-events-none text-center cursor-default text-[50vw] leading-none tracking-tighter z-[1] mix-blend-overlay">
+          404
+        </p>
+        <div className="fixed inset-0">
+          <Kawarp
+            src="/textures/art.jpg"
+            blurPasses={8}
+            animationSpeed={4}
+            saturation={2}
+            warpIntensity={1}
+            dithering={0.1}
+            transitionDuration={0}
+            className="w-full h-full"
+          />
+        </div>
       </div>
     </>
   );
