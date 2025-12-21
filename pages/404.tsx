@@ -12,8 +12,10 @@ import { Footer } from "@/components/landing/footer";
 function AnimatedWord({
   word,
   isHovered,
+  delay = 0,
 }: {
   word: { default: string; hover: string };
+  delay?: number;
   isHovered: boolean;
 }) {
   return (
@@ -22,6 +24,7 @@ function AnimatedWord({
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={isHovered ? "hover" : "default"}
+          transition={{ delay }}
           initial={{ opacity: 0, y: 48, scale: 0.9, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
           exit={{ opacity: 0, y: -24, scale: 0.9, filter: "blur(8px)" }}
@@ -75,6 +78,7 @@ export default function NotFound() {
             />{" "}
             found for this{" "}
             <AnimatedWord
+              delay={0.075}
               word={{ default: "URL", hover: "song" }}
               isHovered={isHovered}
             />
