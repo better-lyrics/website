@@ -176,7 +176,7 @@ const ShadersPromo = memo(function ShadersPromo({
           <span className="font-medium underline transition-colors duration-500 text-gray-600/40 decoration-gray-400/40 group-hover/promo:text-gray-600 group-hover/promo:decoration-gray-400 underline-offset-2">
             Better Lyrics Shaders
           </span>{" "}
-          for stunning dynamic visuals. Give it a try!
+          for gorgeous dynamic visuals. Give it a try!
         </motion.p>
       </div>
     </motion.a>
