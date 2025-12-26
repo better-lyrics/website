@@ -48,7 +48,6 @@ export function useVideoCarousel({
   const themeCount = themes.length;
 
   const checkAllLoaded = useCallback(() => {
-    // Show carousel as soon as first video is ready (others load in background)
     if (loadedCount.current >= 1 && !isLoaded) {
       setIsLoaded(true);
     }
@@ -63,7 +62,6 @@ export function useVideoCarousel({
       videoRefs.current[index] = el;
 
       if (el) {
-        // Pause non-active videos immediately (they have autoPlay for Safari compatibility)
         if (index !== 0) {
           el.pause();
         }
@@ -150,6 +148,7 @@ export function useVideoCarousel({
     if (!isLoaded) return;
 
     let lastTime = performance.now();
+    let lastVideoTime = 0;
 
     const tick = (now: number) => {
       const delta = now - lastTime;
@@ -170,10 +169,17 @@ export function useVideoCarousel({
       const time = activeVideo.currentTime;
       setCurrentTime(time);
 
-      if (time >= SEGMENT_DURATION && !isTransitioning) {
+      const videoLooped = lastVideoTime > 1 && time < lastVideoTime - 1;
+      const shouldTransition =
+        (time >= SEGMENT_DURATION || videoLooped) && !isTransitioning;
+
+      if (shouldTransition) {
         const nextIndex = (activeIndex + 1) % themeCount;
         transitionToTheme(nextIndex, activeIndex);
         setCurrentTime(0);
+        lastVideoTime = 0;
+      } else {
+        lastVideoTime = time;
       }
 
       rafRef.current = requestAnimationFrame(tick);
