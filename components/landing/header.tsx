@@ -29,6 +29,14 @@ export function Header({ status }: HeaderProps) {
           Features
         </Link>
         <Link
+          className={
+            "hidden text-sm font-medium hover:underline underline-offset-4 sm:block"
+          }
+          href="#themes"
+        >
+          Themes
+        </Link>
+        <Link
           className="hidden text-sm font-medium hover:underline underline-offset-4 sm:block"
           href="#testimonials"
         >
