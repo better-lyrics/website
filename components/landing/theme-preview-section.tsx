@@ -286,7 +286,7 @@ export const ThemePreviewSection = memo(function ThemePreviewSection() {
               staggerChildren: STAGGER_DELAY,
               delayChildren: 0.75,
             }}
-            className="flex gap-2 mt-8 justify-evenly scrollbar-hide md:gap-1"
+            className="flex gap-2 mt-12 justify-evenly scrollbar-hide md:gap-1"
           >
             {themes.map((theme, index) => (
               <ThemeIndicator
