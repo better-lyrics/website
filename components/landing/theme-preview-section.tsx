@@ -269,9 +269,9 @@ const ThemeIndicator = memo(function ThemeIndicator({
     >
       <div
         className={cn(
-          "relative h-2 w-full rounded-[2px] overflow-hidden transition-colors duration-300 group-hover:bg-gray-400/35",
-          index === 0 && "rounded-[8px_2px_2px_8px]",
-          index === themes.length - 1 && "rounded-[2px_8px_8px_2px]",
+          "relative h-2 w-full rounded-full md:rounded-[2px] overflow-hidden transition-colors duration-300 group-hover:bg-gray-400/35",
+          index === 0 && "md:rounded-[8px_4px_4px_8px]",
+          index === themes.length - 1 && "md:rounded-[4px_8px_8px_4px]",
           isActive ? "bg-gray-300" : "bg-gray-300/75"
         )}
       >
@@ -440,7 +440,7 @@ export const ThemePreviewSection = memo(function ThemePreviewSection() {
               staggerChildren: STAGGER_DELAY,
               delayChildren: 0.75,
             }}
-            className="flex flex-wrap justify-between gap-2 mt-12 md:flex-nowrap scrollbar-hide md:gap-1"
+            className="flex flex-wrap justify-between gap-2 mt-12 gap-y-4 md:flex-nowrap scrollbar-hide md:gap-1 md:gap-y-1"
           >
             {themes.map((theme, index) => (
               <ThemeIndicator
