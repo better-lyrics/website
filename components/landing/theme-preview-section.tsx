@@ -418,9 +418,14 @@ export const ThemePreviewSection = memo(function ThemePreviewSection() {
                   className="absolute inset-0 object-cover w-full h-full"
                 >
                   <source
+                    src={`/videos/themes/${theme.id}.webm`}
+                    type="video/webm"
+                  />
+                  <source
                     src={`/videos/themes/${theme.id}.mp4`}
                     type="video/mp4"
                   />
+                  Your browser does not support the video tag.
                 </motion.video>
               );
             })}
