@@ -48,10 +48,11 @@ export function useVideoCarousel({
   const themeCount = themes.length;
 
   const checkAllLoaded = useCallback(() => {
-    if (loadedCount.current >= themeCount && !isLoaded) {
+    // Show carousel as soon as first video is ready (others load in background)
+    if (loadedCount.current >= 1 && !isLoaded) {
       setIsLoaded(true);
     }
-  }, [themeCount, isLoaded]);
+  }, [isLoaded]);
 
   const registerVideoRef = useCallback(
     (index: number, el: HTMLVideoElement | null) => {
@@ -62,18 +63,23 @@ export function useVideoCarousel({
       videoRefs.current[index] = el;
 
       if (el) {
-        const handleCanPlayThrough = () => {
+        // Pause non-active videos immediately (they have autoPlay for Safari compatibility)
+        if (index !== 0) {
+          el.pause();
+        }
+
+        const handleCanPlay = () => {
           loadedCount.current += 1;
           setLoadingProgress(loadedCount.current / themeCount);
           checkAllLoaded();
         };
 
-        el.addEventListener("canplaythrough", handleCanPlayThrough, {
+        el.addEventListener("canplay", handleCanPlay, {
           once: true,
         });
 
-        if (el.readyState >= 4) {
-          handleCanPlayThrough();
+        if (el.readyState >= 3) {
+          handleCanPlay();
         }
       }
     },

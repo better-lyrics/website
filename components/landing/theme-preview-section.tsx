@@ -269,7 +269,7 @@ const ThemeIndicator = memo(function ThemeIndicator({
     >
       <div
         className={cn(
-          "relative h-2 w-full rounded-full md:rounded-[2px] overflow-hidden transition-colors duration-300 group-hover:bg-gray-400/35",
+          "relative h-2 w-24 md:w-full rounded-full md:rounded-[2px] overflow-hidden transition-colors duration-300 group-hover:bg-gray-400/35",
           index === 0 && "md:rounded-[8px_4px_4px_8px]",
           index === themes.length - 1 && "md:rounded-[4px_8px_8px_4px]",
           isActive ? "bg-gray-300" : "bg-gray-300/75"
@@ -360,7 +360,7 @@ export const ThemePreviewSection = memo(function ThemePreviewSection() {
             transition={{ duration: ANIMATION_DURATION.normal }}
             className="relative overflow-hidden bg-black rounded-2xl squircle shadow-video aspect-video"
           >
-            <div className="absolute z-[100] bottom-4 left-4 justify-end items-end flex gap-1 text-xs text-gray-100/75 opacity-0 duration-400 translate-y-4 group-hover:delay-200 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
+            <div className="absolute z-[100] bottom-4 left-4 justify-end items-end hidden gap-1 text-xs text-gray-100/75 opacity-0 duration-400 translate-y-4 group-hover:delay-200 group-hover:translate-y-0 group-hover:opacity-100 transition-all md:flex">
               <kbd className="grid pb-[2.5px] font-mono text-gray-600 bg-gray-200 rounded size-5 place-items-center embossed-object-small">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -402,8 +402,9 @@ export const ThemePreviewSection = memo(function ThemePreviewSection() {
                 <motion.video
                   key={theme.id}
                   ref={(el) => registerVideoRef(index, el)}
-                  src={`/videos/themes/${theme.id}.mp4`}
+                  autoPlay
                   muted
+                  loop
                   playsInline
                   preload="auto"
                   initial={false}
@@ -415,7 +416,12 @@ export const ThemePreviewSection = memo(function ThemePreviewSection() {
                   }}
                   transition={videoTransition}
                   className="absolute inset-0 object-cover w-full h-full"
-                />
+                >
+                  <source
+                    src={`/videos/themes/${theme.id}.mp4`}
+                    type="video/mp4"
+                  />
+                </motion.video>
               );
             })}
 
