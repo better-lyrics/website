@@ -4,7 +4,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { type TStatus } from "@/utils/functions";
+import { type TStatus, STATUS_API_URL } from "@/utils/functions";
 import { Header } from "@/components/landing/header";
 import Kawarp from "@kawarp/react";
 import { Footer } from "@/components/landing/footer";
@@ -43,7 +43,7 @@ export default function NotFound() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const statusResponse = await fetch("/api/status");
+      const statusResponse = await fetch(STATUS_API_URL);
       const { status } = await statusResponse.json();
       setStatus(status);
     };

@@ -7,22 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 
 export type TStatus = "operational" | "degraded" | "downtime";
 
-export async function getApiStatus() {
-  const token = process.env.BETTERSTACK_KEY;
-
-  if (!token) {
-    throw new Error("No BetterStack key provided");
-  }
-
-  const options = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-  const response = await fetch("https://uptime.betterstack.com/api/v2/status-pages/189479", options);
-  const { data } = await response.json();
-
-  const status = data.attributes.aggregate_state as TStatus;
-
-  return status;
-}
+export const STATUS_API_URL =
+  process.env.NEXT_PUBLIC_STATUS_API || "/api/status";

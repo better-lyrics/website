@@ -1,0 +1,7 @@
+name = "better-lyrics-status"
+main = "status-worker.ts"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "STATUS_CACHE"
+id = "a60d2894607b44729223fb1d47729bf0"
