@@ -1,0 +1,8 @@
+name = "better-lyrics-website"
+compatibility_date = "2026-01-16"
+
+[assets]
+directory = "out"
+
+[vars]
+NEXT_PUBLIC_STATUS_API = "https://better-lyrics-status.boidushyabhattacharya.workers.dev"
