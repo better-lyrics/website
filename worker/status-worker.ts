@@ -1,52 +1,60 @@
+type Status = "operational" | "degraded" | "downtime";
+
 interface Env {
   BETTERSTACK_KEY: string;
   STATUS_CACHE: KVNamespace;
 }
 
-type TStatus = "operational" | "degraded" | "downtime";
-
-interface BetterStackResponse {
-  data: {
-    attributes: {
-      aggregate_state: TStatus;
-    };
-  };
-}
-
+const CACHE_KEY = "status";
 const CACHE_TTL = 60;
 
-const corsHeaders = {
+const headers = {
+  "Content-Type": "application/json",
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
-  "Content-Type": "application/json",
 };
 
-export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+const json = (status: Status) =>
+  new Response(JSON.stringify({ status }), { headers });
+
+const STATUS_PAGE_ID = "189479";
+
+async function fetchStatus(env: Env): Promise<Status> {
+  const res = await fetch(
+    `https://uptime.betterstack.com/api/v2/status-pages/${STATUS_PAGE_ID}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${env.BETTERSTACK_KEY}`,
+      },
+    }
+  );
+
+  if (!res.ok) return "operational";
+
+  const { data } = await res.json<{
+    data: { attributes: { aggregate_state: Status } };
+  }>();
+
+  return data?.attributes?.aggregate_state ?? "operational";
+}
+
+const worker: ExportedHandler<Env> = {
+  async fetch(request, env) {
     if (request.method === "OPTIONS") {
-      return new Response(null, { headers: corsHeaders });
+      return new Response(null, { headers });
     }
 
-    const cached = await env.STATUS_CACHE.get("status");
-    if (cached) {
-      return new Response(cached, { headers: corsHeaders });
-    }
+    const cached = await env.STATUS_CACHE.get<Status>(CACHE_KEY, "json");
+    if (cached) return json(cached);
 
-    const response = await fetch(
-      `https://uptime.betterstack.com/api/v2/status-pages/${env.BETTERSTACK_KEY}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const status = await fetchStatus(env);
+    await env.STATUS_CACHE.put(CACHE_KEY, JSON.stringify(status), {
+      expirationTtl: CACHE_TTL,
+    });
 
-    const data = (await response.json()) as BetterStackResponse;
-    const status = data?.data?.attributes?.aggregate_state || "operational";
-    const result = JSON.stringify({ status });
-
-    await env.STATUS_CACHE.put("status", result, { expirationTtl: CACHE_TTL });
-
-    return new Response(result, { headers: corsHeaders });
+    return json(status);
   },
 };
+
+export default worker;
