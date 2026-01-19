@@ -6,6 +6,7 @@ import RedditIcon from "@/components/icons/reddit";
 import BetterLyricsLogo from "@/components/icons/better-lyrics";
 import { NoiseOverlay } from "@/components/shared/noise-overlay";
 import GithubIcon from "@/components/icons/github";
+import TranslateIcon from "@/components/icons/translate";
 
 export const Footer = memo(function Footer() {
   const links = [
@@ -14,6 +15,14 @@ export const Footer = memo(function Footer() {
       label: "Status",
       event: "status-link",
       group: "general",
+    },
+    {
+      href: "https://crowdin.com/project/better-lyrics?utm_source=badge&utm_medium=referral&utm_campaign=badge-add-on",
+      label: "Translate",
+      event: "crowdin-link",
+      target: "_blank",
+      group: "social",
+      icon: <TranslateIcon />,
     },
     {
       href: "https://discord.gg/UsHE3d5fWF",
@@ -41,7 +50,7 @@ export const Footer = memo(function Footer() {
       icon: <GithubIcon />,
     },
     {
-      href: "https://twitter.com/boidushya",
+      href: "https://twitter.com/betterlyric",
       label: "Twitter",
       event: "twitter-link",
       target: "_blank",
