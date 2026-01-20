@@ -27,6 +27,7 @@ export interface Testimonial {
   name: string;
   fallback: string;
   quote: ReactNode;
+  sourceUrl?: string;
 }
 
 /**

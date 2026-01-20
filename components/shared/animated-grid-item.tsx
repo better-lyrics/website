@@ -64,7 +64,7 @@ export const AnimatedGridItem = memo(function AnimatedGridItem({
       onHoverEnd={onHoverEnd}
       onTouchStart={onHoverStart}
       onTouchEnd={onHoverEnd}
-      className="relative group"
+      className="relative h-full group"
     >
       <div
         className={cn(

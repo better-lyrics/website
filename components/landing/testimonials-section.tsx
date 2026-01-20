@@ -1,9 +1,12 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import { SectionHeader } from "@/components/shared/section-header";
 import { AnimatedGridItem } from "@/components/shared/animated-grid-item";
 import { NoiseOverlay } from "@/components/shared/noise-overlay";
 import type { Testimonial } from "@/types/landing";
+
+const DISCORD_URL = "https://discord.gg/UsHE3d5fWF";
 
 const testimonials: Testimonial[] = [
   {
@@ -18,6 +21,8 @@ const testimonials: Testimonial[] = [
         to YouTube Music a lot, trust me.
       </span>
     ),
+    sourceUrl:
+      "https://chromewebstore.google.com/reviews/91f2f934-c72f-4e9a-a071-424a3891d643",
   },
   {
     id: "nethercookiez",
@@ -33,6 +38,8 @@ const testimonials: Testimonial[] = [
         lyrics.
       </span>
     ),
+    sourceUrl:
+      "https://www.reddit.com/r/YoutubeMusic/comments/1db1j6a/comment/l7vxa4b/",
   },
   {
     id: "kevin-patel",
@@ -47,6 +54,8 @@ const testimonials: Testimonial[] = [
         recommended.
       </span>
     ),
+    sourceUrl:
+      "https://chromewebstore.google.com/reviews/8d1db491-6825-4e29-a3b9-2562cdf09e64",
   },
   {
     id: "just-people",
@@ -64,6 +73,8 @@ const testimonials: Testimonial[] = [
         thanks dev, for making this extension.
       </span>
     ),
+    sourceUrl:
+      "https://chromewebstore.google.com/reviews/e6f79cd7-8c63-4798-b1ed-afcfb1f3dab0",
   },
   {
     id: "johnathon-deal",
@@ -79,6 +90,8 @@ const testimonials: Testimonial[] = [
         project for making this.
       </span>
     ),
+    sourceUrl:
+      "https://chromewebstore.google.com/reviews/340c77e0-f5e9-4eae-9acb-464f900c913d",
   },
   {
     id: "sortingfarmer",
@@ -94,6 +107,7 @@ const testimonials: Testimonial[] = [
         know I needed.
       </span>
     ),
+    sourceUrl: DISCORD_URL,
   },
   {
     id: "param-bedi",
@@ -110,6 +124,8 @@ const testimonials: Testimonial[] = [
         your extension. AND <span className="font-semibold">I LOVE IT!!!!</span>
       </span>
     ),
+    sourceUrl:
+      "https://chromewebstore.google.com/reviews/28fa2977-be68-4145-aa48-d6bf091abce2",
   },
   {
     id: "wttexe",
@@ -128,6 +144,7 @@ const testimonials: Testimonial[] = [
         game changer for any YTM user.
       </span>
     ),
+    sourceUrl: DISCORD_URL,
   },
   {
     id: "andi",
@@ -142,6 +159,7 @@ const testimonials: Testimonial[] = [
         doing business.
       </span>
     ),
+    sourceUrl: DISCORD_URL,
   },
 ];
 
@@ -176,9 +194,8 @@ export function TestimonialsSection() {
           <div className="grid max-w-5xl grid-cols-1 gap-6 pt-12 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:gap-8">
             {testimonials.map((testimonial, index) => {
               const isDisclaimer = DISCLAIMER_IDS.includes(testimonial.id);
-              return (
+              const content = (
                 <AnimatedGridItem
-                  key={testimonial.id}
                   index={index}
                   isHovered={hoveredIndex === index}
                   onHoverStart={() => handleHoverStart(index)}
@@ -223,6 +240,22 @@ export function TestimonialsSection() {
                     </p>
                   </div>
                 </AnimatedGridItem>
+              );
+
+              return testimonial.sourceUrl ? (
+                <Link
+                  key={testimonial.id}
+                  href={testimonial.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline"
+                >
+                  {content}
+                </Link>
+              ) : (
+                <div key={testimonial.id} className="h-full">
+                  {content}
+                </div>
               );
             })}
           </div>
