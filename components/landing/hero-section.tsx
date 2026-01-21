@@ -143,7 +143,7 @@ export function HeroSection() {
                 alt="Microsoft Edge Add-Ons"
                 eventName="edge-btn"
                 delay={1}
-                className="px-10 bg-[#021928] embossed-object-dark border-white/10 hover:border-white/15"
+                className="px-4 bg-[#021928] embossed-object-dark border-white/10 hover:border-white/15"
                 imgClassName="mt-1"
               />
             </motion.div>
