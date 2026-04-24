@@ -63,6 +63,13 @@ export const Footer = memo(function Footer() {
       group: "general",
     },
     {
+      href: "https://composer.boidu.dev",
+      label: "Composer",
+      event: "composer-link",
+      target: "_blank",
+      group: "general",
+    },
+    {
       href: "https://boidu.dev",
       label: "Contact",
       group: "general",

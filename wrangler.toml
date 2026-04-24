@@ -3,6 +3,7 @@ compatibility_date = "2026-01-16"
 
 [assets]
 directory = "out"
+not_found_handling = "404-page"
 
 [vars]
 NEXT_PUBLIC_STATUS_API = "https://better-lyrics-status.boidushyabhattacharya.workers.dev"
