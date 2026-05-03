@@ -53,7 +53,7 @@ export function Header({ status }: HeaderProps) {
               status === "downtime" &&
                 "text-red-800 bg-red-100/60 border-red-600/50 hover:bg-red-100",
             )}
-            href="https://better-lyrics-status.boidu.dev"
+            href="https://better-lyrics.openstatus.dev"
             target="_blank"
           >
             <span className="relative flex w-2 h-2 mr-2">

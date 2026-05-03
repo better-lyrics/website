@@ -11,7 +11,7 @@ import TranslateIcon from "@/components/icons/translate";
 export const Footer = memo(function Footer() {
   const links = [
     {
-      href: "https://better-lyrics-status.boidu.dev/",
+      href: "https://better-lyrics.openstatus.dev/",
       label: "Status",
       event: "status-link",
       group: "general",

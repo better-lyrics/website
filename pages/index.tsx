@@ -5,7 +5,7 @@ export default function Home() {
   const title = "Better Lyrics for Youtube Music";
   const description =
     "Better Lyrics extension upgrades your YouTube Music experience by providing beautiful time-synced lyrics for your favorite songs.";
-  const ogImage = "https://better-lyrics.boidu.dev/images/og.png";
+  const ogImage = "https://betterlyrics.org/images/og.png";
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Home() {
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://better-lyrics.boidu.dev/" />
+        <meta property="og:url" content="https://betterlyrics.org/" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
@@ -33,7 +33,7 @@ export default function Home() {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://better-lyrics.boidu.dev/" />
+        <meta name="twitter:url" content="https://betterlyrics.org/" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
@@ -43,7 +43,7 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/icons/icon-512.png" />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://better-lyrics.boidu.dev/" />
+        <link rel="canonical" href="https://betterlyrics.org/" />
 
         {/* Analytics */}
         <script

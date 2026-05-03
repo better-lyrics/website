@@ -7,5 +7,36 @@ export function cn(...inputs: ClassValue[]) {
 
 export type TStatus = "operational" | "degraded" | "downtime";
 
-export const STATUS_API_URL =
-  process.env.NEXT_PUBLIC_STATUS_API || "/api/status";
+type OpenStatusValue =
+  | "operational"
+  | "degraded_performance"
+  | "partial_outage"
+  | "major_outage"
+  | "under_maintenance"
+  | "unknown"
+  | "incident";
+
+const STATUS_PAGE_SLUG = "better-lyrics";
+
+const STATUS_MAP: Record<OpenStatusValue, TStatus> = {
+  operational: "operational",
+  degraded_performance: "degraded",
+  under_maintenance: "degraded",
+  unknown: "degraded",
+  partial_outage: "downtime",
+  major_outage: "downtime",
+  incident: "downtime",
+};
+
+export async function fetchStatus(): Promise<TStatus> {
+  try {
+    const res = await fetch(
+      `https://api.openstatus.dev/public/status/${STATUS_PAGE_SLUG}`
+    );
+    if (!res.ok) return "operational";
+    const { status } = (await res.json()) as { status: OpenStatusValue };
+    return STATUS_MAP[status] ?? "operational";
+  } catch {
+    return "operational";
+  }
+}
