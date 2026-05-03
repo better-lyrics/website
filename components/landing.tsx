@@ -1,5 +1,5 @@
 import React from "react";
-import { type TStatus, STATUS_API_URL } from "@/utils/functions";
+import { type TStatus, fetchStatus } from "@/utils/functions";
 import { Header } from "./landing/header";
 import { TopBanner } from "./landing/top-banner";
 import { HeroSection } from "./landing/hero-section";
@@ -13,14 +13,7 @@ export function Landing() {
   const [status, setStatus] = React.useState<TStatus>("operational");
 
   React.useEffect(() => {
-    const fetchData = async () => {
-      const statusResponse = await fetch(STATUS_API_URL);
-
-      const { status } = await statusResponse.json();
-
-      setStatus(status);
-    };
-    fetchData();
+    fetchStatus().then(setStatus);
   }, []);
 
   return (
