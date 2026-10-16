@@ -7,6 +7,7 @@ import { FeaturesSection } from "./landing/features-section";
 import { ThemePreviewSection } from "./landing/theme-preview-section";
 import { DemoSection } from "./landing/demo-section";
 import { TestimonialsSection } from "./landing/testimonials-section";
+import { FaqSection } from "./landing/faq-section";
 import { Footer } from "./landing/footer";
 
 export function Landing() {
@@ -26,6 +27,7 @@ export function Landing() {
         <FeaturesSection />
         <ThemePreviewSection />
         <TestimonialsSection />
+        <FaqSection />
       </main>
 
       <Footer />

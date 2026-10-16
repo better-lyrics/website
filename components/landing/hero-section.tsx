@@ -105,7 +105,7 @@ export function HeroSection() {
               />
               <AnimatedText
                 as="p"
-                text="Better Lyrics is the ultimate extension to step up your Youtube Music experience. Get beautiful time-synced lyrics, real-time translations, and more."
+                text="Better Lyrics is a free lyrics extension for YouTube Music. Get beautiful time-synced lyrics, real-time translations, and more."
                 className="text-gray-500 md:text-xl dark:text-gray-400"
                 delayChildren={0.45}
                 staggerChildren={0}

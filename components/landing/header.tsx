@@ -79,7 +79,7 @@ export function Header({ status }: HeaderProps) {
 
           <Link
             className="inline-flex items-center justify-center p-2 text-sm font-medium transition-colors bg-gray-900 shadow aspect-square rounded-xl squircle h-9 text-gray-50 hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-            href="https://github.com/boidushya/better-lyrics"
+            href="https://github.com/better-lyrics/better-lyrics"
             target="_blank"
           >
             <GithubIcon />

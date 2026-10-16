@@ -31,6 +31,15 @@ export interface Testimonial {
 }
 
 /**
+ * Question and answer for the FAQ section
+ */
+export interface FaqEntry {
+  id: string;
+  question: string;
+  answer: ReactNode;
+}
+
+/**
  * Store platform for download buttons
  */
 export type StorePlatform = "chrome" | "firefox";
