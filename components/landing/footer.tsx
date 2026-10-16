@@ -58,7 +58,7 @@ export const Footer = memo(function Footer() {
       icon: <TwitterIcon />,
     },
     {
-      href: "https://github.com/boidushya/better-lyrics/blob/master/PRIVACY.md",
+      href: "https://github.com/better-lyrics/better-lyrics/blob/master/PRIVACY.md",
       label: "Privacy",
       group: "general",
     },
