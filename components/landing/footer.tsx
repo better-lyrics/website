@@ -63,7 +63,7 @@ export const Footer = memo(function Footer() {
       group: "general",
     },
     {
-      href: "https://composer.boidu.dev",
+      href: "https://composer.betterlyrics.org",
       label: "Composer",
       event: "composer-link",
       target: "_blank",
