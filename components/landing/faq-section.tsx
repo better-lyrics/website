@@ -100,16 +100,10 @@ const faqEntries: FaqEntry[] = [
     answer: (
       <>
         Better Lyrics is free, with no ads and no paywall, and it will stay
-        that way. It&apos;s built by an independent developer with help from
-        the open-source community, but running it isn&apos;t free: the lyrics
-        servers, the Unison community database and real-time translations all
-        cost money every month. If Better Lyrics has become part of how you
-        listen to music, you can sponsor the project on{" "}
-        <AnswerLink href={GITHUB_SPONSORS_URL}>GitHub Sponsors</AnswerLink> or
-        buy a coffee on{" "}
+        that way. Sponsorships help cover the cost of the servers that keep it
+        running. If you&apos;d like to chip in, you can sponsor the project on{" "}
+        <AnswerLink href={GITHUB_SPONSORS_URL}>GitHub Sponsors</AnswerLink> or{" "}
         <AnswerLink href={BUY_ME_A_COFFEE_URL}>Buy Me a Coffee</AnswerLink>.
-        It pays for those servers and the time that goes into new features, and
-        every bit helps keep Better Lyrics free for everyone.
       </>
     ),
   },
