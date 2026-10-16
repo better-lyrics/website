@@ -2,9 +2,9 @@ import Head from "next/head";
 import { Landing } from "@/components/landing";
 
 export default function Home() {
-  const title = "Better Lyrics for Youtube Music";
+  const title = "Better Lyrics: Synced Lyrics Extension for YouTube Music";
   const description =
-    "Better Lyrics extension upgrades your YouTube Music experience by providing beautiful time-synced lyrics for your favorite songs.";
+    "Free, open-source browser extension that adds time-synced lyrics, real-time translations and romanization to YouTube Music. For Chrome, Firefox and Edge.";
   const ogImage = "https://betterlyrics.org/images/og.png";
 
   return (
