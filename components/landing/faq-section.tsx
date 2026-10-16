@@ -6,6 +6,7 @@ import type { FaqEntry } from "@/types/landing";
 const GITHUB_REPO_URL = "https://github.com/better-lyrics/better-lyrics";
 const PRIVACY_POLICY_URL = `${GITHUB_REPO_URL}/blob/master/PRIVACY.md`;
 const COMPOSER_URL = "https://composer.betterlyrics.org";
+const UNISON_URL = "https://unison.betterlyrics.org";
 const GITHUB_SPONSORS_URL = "https://github.com/sponsors/boidushya";
 const BUY_ME_A_COFFEE_URL = "https://buymeacoffee.com/boidu";
 
@@ -55,8 +56,15 @@ const faqEntries: FaqEntry[] = [
   {
     id: "sources",
     question: "Where do the lyrics come from?",
-    answer:
-      "From several sources, including Better Lyrics' own lyrics, Unison (lyrics made by the community), Musixmatch and LRCLib. Better Lyrics tries the most precisely synced lyrics first and falls back to the next source if a song is missing. You can reorder or turn off sources in the settings.",
+    answer: (
+      <>
+        From several sources, including Better Lyrics&apos; own lyrics,{" "}
+        <AnswerLink href={UNISON_URL}>Unison</AnswerLink> (lyrics made by the
+        community), Musixmatch and LRCLib. Better Lyrics tries the most
+        precisely synced lyrics first and falls back to the next source if a
+        song is missing. You can reorder or turn off sources in the settings.
+      </>
+    ),
   },
   {
     id: "translation",
@@ -77,8 +85,9 @@ const faqEntries: FaqEntry[] = [
       <>
         Yes. <AnswerLink href={COMPOSER_URL}>Composer</AnswerLink> is a free
         editor for word-synced TTML lyrics, with tap-to-sync and a live
-        preview. Submit your lyrics to Unison and everyone using Better Lyrics
-        gets them.
+        preview. Submit your lyrics to{" "}
+        <AnswerLink href={UNISON_URL}>Unison</AnswerLink> and everyone using
+        Better Lyrics gets them.
       </>
     ),
   },
