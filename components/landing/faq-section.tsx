@@ -60,7 +60,7 @@ const faqEntries: FaqEntry[] = [
       <>
         From several sources, including Better Lyrics&apos; own lyrics,{" "}
         <AnswerLink href={UNISON_URL}>Unison</AnswerLink> (lyrics made by the
-        community), Musixmatch and LRCLib. Better Lyrics tries the most
+        community), BiniLyrics and LRCLib. Better Lyrics tries the most
         precisely synced lyrics first and falls back to the next source if a
         song is missing. You can reorder or turn off sources in the settings.
       </>
